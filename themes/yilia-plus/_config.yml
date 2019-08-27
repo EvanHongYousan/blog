@@ -219,6 +219,7 @@ style:
     enable: true
     # 自定义背景图路径(默认可以不设置，提供默认背景图)
     # path: /img/biubiubiu.gif
+    path: /images/gif/flash.gif
   # 右滑板块背景
   slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
 
