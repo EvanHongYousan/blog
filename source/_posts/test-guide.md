@@ -1,6 +1,7 @@
 ---
 title: 前端组件测试构建指引
 date: 2017-06-06 16:27
+tags: [测试, 自动化]
 ---
 
 ![](/images/test-guide/test_run.gif)

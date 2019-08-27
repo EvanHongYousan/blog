@@ -1,6 +1,7 @@
 ---
 title: geohash算法
 date: 2019-08-15 17:47
+tags: [redis, 算法]
 ---
 
 ## 背景

@@ -1,6 +1,7 @@
 ---
 title: 几款html 5 canvas游戏引擎的调研
 date: 2018-05-15 19:26
+tags: [canvas]
 ---
 
 # 几款html 5 canvas游戏引擎的调研

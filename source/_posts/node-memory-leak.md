@@ -1,6 +1,7 @@
 ---
 title: node.js 内存泄漏排查小结
 date: 2019-07-11 15:06
+tags: [node.js, bug fix]
 ---
 
 node.js 内存泄漏排查小结

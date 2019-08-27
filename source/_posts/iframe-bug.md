@@ -1,6 +1,7 @@
 ---
 title: iframe踩坑记录
 date: 2018-10-11 15:32
+tags: [iframe, bug fix]
 ---
 
 ## 前言
