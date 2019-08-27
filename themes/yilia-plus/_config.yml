@@ -132,7 +132,7 @@ giteement:
 # 访问量统计功能(不蒜子)
 busuanzi:
   enable: true
-  site_visit: true  # 站点访问量显示
+  site_visit: false  # 站点访问量显示
   article_visit: true  # 文章访问量显示
 
 # 网易云音乐插件
@@ -148,12 +148,12 @@ music:
 # 页面点击小红心
 clickLove:
   # (关闭请设置为false)
-  enable: true
+  enable: false
 
 # GitHub Ribbons(https://github.blog/2008-12-19-github-ribbons/)
 github:
   # (关闭请设置为false)
-  url: https://github.com/EvanHongYousan
+  url: false
 
 # 页脚 Litten(此配置项已弃用)
 # 帮助我们让更多人可以更方便使用Hexo，请尽量不要修改此主题配置
@@ -187,8 +187,8 @@ apple_touch_icon: '/apple-touch-icon-180x180.png'
 # Tab Title Change | 标签页标题切换
 tab_title_change:
   enable: true
-  left_tab_title: '(つェ⊂) 我藏好了哦~ '
-  return_tab_title: '(*´∇｀*) 被你发现啦~ '
+  left_tab_title: 'ಠ_ಠ '
+  return_tab_title: '_(:з」∠)_ '
 
 # 是否开启字数统计(关闭请设置enable为false)
 # https://github.com/willin/hexo-wordcount
