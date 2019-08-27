@@ -52,9 +52,9 @@ mathjax: false
 
 # Open link in a new tab | 是否在新窗口打开链接
 open_in_new:
-  article: true  # 文章链接
-  menu: true   # 导航菜单
-  subNav: true  # 子菜单
+  article: false  # 文章链接
+  menu: false   # 导航菜单
+  subNav: false  # 子菜单
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
@@ -83,7 +83,7 @@ baidu_analytics: ''
 google_analytics: ''
 
 # 网站图标
-favicon: /favicon.ico
+favicon: /images/avatar.jpg
 
 # 你的头像url
 avatar: /images/avatar.jpg
@@ -115,19 +115,6 @@ disqus: false
 # 4、Giteement----【国内用户建议使用这个，相对比较快】
 # 关于如何集成:https://www.jianshu.com/p/f5c4633524c7
 # 基于码云的评论系统(https://gitee.com/zhousiwei/giteement)
-# giteement:
-#   enable: true  # 是否启用码云评论系统
-#   # 是否使用官方js(false可以提升访问速度)
-#   remote: false
-#   redirect_uri: 'https://evanhongyousan.github.io'   # 应用回调地址(请和配置的第三方应用保持一致)
-#   # 不能更改(网上开源项目https://github.com/Rob--W/cors-anywhere作者提供的专门用来跨域服务器的配置)
-#   oauth_uri: https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token
-#   giteeID: EvanHongYousan  # 你的码云账号英文名
-#   # 存储评论的 repo name(需要在码云仓库创建公开仓库)
-#   repo: evanhongyousan.github.io
-#   gitment_oauth:
-#     client_id: '509c8964ab97a6683cccd4b55730a1f8b3cb2fe5bb4dd4ecf86f2b367ea16efb'           #client ID
-#     client_secret: 'de7cf9b53cc95269bf28c761b10ade50597b9f3dd343939bedf956ebb4fd2239'       #client secret
 
 giteement:
   enable: true  # 是否启用码云评论系统
@@ -209,9 +196,9 @@ tab_title_change:
 # 必须安装 `hexo-wordcount` 插件，在根目录执行 `npm i hexo-wordcount --save`
 # 也可以单独在md文件里Front-matter设置`no_word_count: true`属性，来自定义关闭字数统计
 word_count:
-  enable: false
+  enable: true
   # 只在文章详情显示(不在首页显示)
-  only_article_visit: true
+  only_article_visit: false
 
 # 文字输入特效
 # https://github.com/disjukr/activate-power-mode
@@ -229,7 +216,7 @@ style:
   header: '#4d4d4d'
   gif:
     # 是否启用左侧边栏动态图效果
-    enable: false
+    enable: true
     # 自定义背景图路径(默认可以不设置，提供默认背景图)
     # path: /img/biubiubiu.gif
   # 右滑板块背景
@@ -238,7 +225,7 @@ style:
 # slider的设置
 slider:
   # 是否默认展开tags板块
-  showTags: false
+  showTags: true
 
 # 智能菜单
 # 如不需要，将该对应项置为false
