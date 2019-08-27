@@ -2,7 +2,7 @@
 title: 【译】如何让CSS动画更自然
 subtitle: 设计师负责设计，程序员负责编码。他们间互不干涉。
 cover: /images/making-css-animations-feel-natural/cover.png
-date: 2018-06-08 19:30
+date: 2018-06-08 19:30:58
 categories: [翻译]
 author: evanyan
 tags: [css, html]
