@@ -4,8 +4,6 @@ date: 2018-02-11 15:35:58
 tags: [css, html]
 ---
 
-## 目标效果
-
 ![](/images/crashBall-by-css3/crash-ball.gif)
 <escape><!-- more --></escape>
 
