@@ -16,7 +16,7 @@ select id from positions where x0-r < x < x0+r and y0-r < y < y0+r
 ![](/images/geohash/1.png)
 
 不过，这种查询方式，在高并发场景，性能可能仍然达不到要求
-<!-- more -->
+<escape><!-- more --></escape>
 
 ## geohash
 

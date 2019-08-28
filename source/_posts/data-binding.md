@@ -23,7 +23,7 @@ document.addEventListener('keyup',function(e){
     obj.a = e.target.value;  
 });
 ```
-<!-- more -->
+<escape><!-- more --></escape>
 
 >对象里目前存在的属性描述符有两种主要形式：数据描述符和存取描述符。数据描述符是一个具有值的属性，该值可能是可写的，也可能不是可写的。存取描述符是由getter-setter函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。
 

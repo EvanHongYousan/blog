@@ -6,7 +6,7 @@ tags: [沟通技巧]
 
 沟通技巧：用事实说话，用数据说话，结论先行
 
-<!-- more -->
+<escape><!-- more --></escape>
 
 ![](/images/talking-tricks/627b34fc-4ab1-11e9-a331-525400a20cd4.png)
 

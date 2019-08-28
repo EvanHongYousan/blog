@@ -11,7 +11,7 @@ http协议在TCP/IP协议群中的位置:
 ![](/images/tcp-ip-http/tcpip.png)
 
 
-<!-- more -->
+<escape><!-- more --></escape>
 
 TCP/IP协议群的分层：
 

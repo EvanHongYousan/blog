@@ -11,7 +11,7 @@ author: evanyan
 正如我经常提到的那样，[文档树中的每个元素都是一个矩形盒子(盒模型)](https://bitsofco.de/controlling-the-box-model/)。一般来说，这个“矩形盒子”由两部分组成。首先我们有实际的盒子，它由边框，填充和边缘区域组成。其次，我们有盒子的内容-具体内容区域。
 
 ![](/images/how-display-content-works/Group-3.png)
-<!-- more -->
+<escape><!-- more --></escape>
 
 通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。通过display:inline，我们可以将这个盒子放在其兄弟姐妹中，就像文本一样。通过display:table，我们可以欺骗盒子，使其表现的像table元素一样。
 

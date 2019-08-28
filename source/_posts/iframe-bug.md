@@ -9,7 +9,7 @@ tags: [iframe, bug fix]
 以现代web页面最佳实践而言，iframe是属于应该尽量避免使用的东西。
 
 不过，在人力资源和产出需求相矛盾的情况下，iframe又是解决这一矛盾的利器。
-<!-- more -->
+<escape><!-- more --></escape>
 
 ## 背景
 

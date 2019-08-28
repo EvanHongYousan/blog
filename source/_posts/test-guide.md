@@ -6,7 +6,7 @@ tags: [测试, 自动化]
 
 ![](/images/test-guide/test_run.gif)
 
-<!-- more -->
+<escape><!-- more --></escape>
 
 ## 背景
 1. 前端组件被业务依赖，需要保证其可靠性

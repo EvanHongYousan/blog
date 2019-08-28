@@ -7,7 +7,7 @@ tags: [css, html]
 ## 目标效果
 
 ![](/images/crashBall-by-css3/crash-ball.gif)
-<!-- more -->
+<escape><!-- more --></escape>
 
 ## 具体代码
 
