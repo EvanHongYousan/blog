@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Evan's blog
+title: evanhongyousan's blog
 subtitle: 随性而行 随遇而安 随心而静
 description:
 keywords:
-author: Evan
+author: evanhongyousan
 language: en
 timezone:
 
@@ -118,3 +118,9 @@ feed: # RSS订阅插件
   limit: 0
 
 plugins: hexo-generate-feed
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
