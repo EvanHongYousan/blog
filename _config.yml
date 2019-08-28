@@ -76,7 +76,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia-plus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -111,3 +111,10 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
+    
+feed: # RSS订阅插件
+  type: atom
+  path: atom.xml
+  limit: 0
+
+plugins: hexo-generate-feed
