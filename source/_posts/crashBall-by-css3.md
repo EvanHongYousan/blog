@@ -1,7 +1,7 @@
 ---
 title: 低成本碰撞动画实现
 date: 2018-02-11 15:35:58
-tags: [CSS, HTML]
+tags: [css, html]
 ---
 
 ![](/images/crashBall-by-css3/crash-ball.gif)

@@ -4,7 +4,7 @@ subtitle: 通过CSS的display属性，我们可以控制元素及其子元素在
 cover: /images/how-display-content-works/Group-3.png
 date: 2018-04-03 11:16:45
 categories: [翻译]
-tags: [CSS, HTML, 翻译]
+tags: [css, html, 翻译]
 author: evanyan
 ---
 
