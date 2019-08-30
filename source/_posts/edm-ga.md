@@ -46,7 +46,21 @@ z | 缓存无效化随机数字
 
 更详细的参数参考在[这里](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)
 
-当然，使用img标签的缺陷，就在于当邮件系统阻挡图片时，上报会失效
+下面是一个真实例子：
+
+```javascript
+https://www.google-analytics.com/collect?v=1&tid=UA-146663661-1&cid=001&t=event&ec=email&ea=open&el=recipient_id&cs=newsletter&cm=email&cn=Campaign_Name&z=123456
+```
+
+使用浏览器直接做get请求
+
+![8dd46459304a9334fafdea311881e237.png](/images/edm-ga/6.png)
+
+在ga中可以看到
+
+![5d4854cd85fa9aa2ccb23cb6912e376b.png](/images/edm-ga/7.png)
+
+>当然，使用img标签的缺陷，就在于当邮件系统阻挡图片时，上报会失效
 
 ### 邮件链接追踪情况
 
