@@ -1,7 +1,7 @@
 ---
 title: webpack config
 date: 2019-08-30 23:10:12
-tags:
+tags: [webpack]
 ---
 
 想让源文件加入到构建流程中去被 Webpack 控制，配置 entry。
