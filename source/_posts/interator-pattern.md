@@ -1,6 +1,7 @@
 ---
 title: 迭代器的构建和使用
 date: 2018-09-03 19:42:58
+categories: [tech]
 tags: [设计模式]
 ---
 

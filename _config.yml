@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://evanhongyousan.gitee.io/
+url: https://evanhongyousan.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -89,7 +89,7 @@ theme: next
 
 deploy:
   type: git
-  repo: https://gitee.com/EvanHongYousan/EvanHongYousan #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
   message: 
 

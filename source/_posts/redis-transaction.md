@@ -1,6 +1,7 @@
 ---
 title: redis 事务
 date: 2019-07-09 17:06:58
+categories: [tech]
 tags: [redis]
 ---
 

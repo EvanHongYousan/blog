@@ -1,6 +1,7 @@
 ---
 title: 命令模式的构建与使用
 date: 2018-09-03 20:06:58
+categories: [tech]
 tags: [设计模式]
 ---
 

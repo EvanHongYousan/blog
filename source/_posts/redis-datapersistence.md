@@ -1,6 +1,7 @@
 ---
 title: redis 持久化
 date: 2019-07-09 15:40:58
+categories: [tech]
 tags: [redis]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 职责链模式
 date: 2018-07-03 20:06:58
+categories: [tech]
 tags: [设计模式]
 ---
 

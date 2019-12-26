@@ -1,6 +1,7 @@
 ---
 title: 增长黑客小结
 date: 2019-08-15 09:16:58
+categories: [tech]
 tags: [用户增长]
 ---
 

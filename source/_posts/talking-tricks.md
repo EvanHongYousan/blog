@@ -1,6 +1,7 @@
 ---
 title: 沟通技巧小结
 date: 2019-03-20 09:44:58
+categories: [tech]
 tags: [沟通技巧]
 ---
 

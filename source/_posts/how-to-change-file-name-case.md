@@ -1,6 +1,7 @@
 ---
 title: 文件名大小写踩坑记录
 date: 2019-12-25 17:53:58
+categories: [tech]
 tags: [git, bug fix]
 ---
 

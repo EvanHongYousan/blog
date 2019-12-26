@@ -1,6 +1,7 @@
 ---
 title: 前端组件测试构建指引
 date: 2017-06-06 16:27:58
+categories: [tech]
 tags: [测试, 自动化]
 ---
 

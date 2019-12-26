@@ -1,6 +1,7 @@
 ---
 title: redis 主从同步
 date: 2019-07-11 15:51:58
+categories: [tech]
 tags: [redis]
 ---
 

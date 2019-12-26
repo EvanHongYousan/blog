@@ -1,6 +1,7 @@
 ---
 title: 数据绑定方案收集
 date: 2018-03-12 15:28:58
+categories: [tech]
 tags: [设计模式]
 ---
 

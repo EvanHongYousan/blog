@@ -1,6 +1,7 @@
 ---
 title: redis PubSub
 date: 2019-07-09 17:45:58
+categories: [tech]
 tags: [redis]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 使用ga进行邮件营销跟踪
 date: 2019-08-29 21:33:55
+categories: [tech]
 tags: [用户增长, google analytics, 邮件营销]
 ---
 

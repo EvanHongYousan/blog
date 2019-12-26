@@ -1,6 +1,7 @@
 ---
 title: 高階函数特性与装饰者模式
 date: 2018-04-03 14:32:58
+categories: [tech]
 tags: [设计模式]
 ---
 

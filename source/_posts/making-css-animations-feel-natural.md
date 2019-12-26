@@ -3,8 +3,8 @@ title: 【译】如何让CSS动画更自然
 subtitle: 设计师负责设计，程序员负责编码。他们间互不干涉。
 cover: /images/making-css-animations-feel-natural/cover.png
 date: 2018-06-08 19:30:58
-categories: [翻译]
 author: evanyan
+categories: [tech]
 tags: [css, html, 翻译]
 ---
 在过去，设计师负责设计，程序员负责编码。他们间互不干涉。但随着CSS中transitions和animations的到来，设计和编码的界限模糊了。设计师描述设计，而程序员把设计师的描述翻译成具体代码--这种合作模式不再像过去那么简单。为了高效地协作，设计师必须懂点代码，而程序员必须懂点设计。

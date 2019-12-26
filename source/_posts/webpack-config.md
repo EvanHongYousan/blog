@@ -1,6 +1,7 @@
 ---
 title: webpack config
 date: 2019-08-30 23:10:12
+categories: [tech]
 tags: [webpack]
 ---
 

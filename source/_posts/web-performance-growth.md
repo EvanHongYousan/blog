@@ -1,6 +1,7 @@
 ---
 title: 一次web性能优化实施记录
 date: 2019-12-23 19:56:12
+categories: [tech]
 tags: [webpack, 性能, cdn, 部署, gulp]
 ---
 

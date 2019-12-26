@@ -1,6 +1,7 @@
 ---
 title: redis 小对象压缩
 date: 2019-07-10 20:06:58
+categories: [tech]
 tags: [redis]
 ---
 
