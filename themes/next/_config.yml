@@ -159,7 +159,7 @@ menu:
   home: / || home
   # about: /about/ || user
   archives: /archives/ || archive
-  # categories: /categories/ || th
+  categories: /categories/ || th
   tags: /tags/ || tags
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
