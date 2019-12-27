@@ -17,10 +17,10 @@ tags: [iframe, bug fix]
 
 ## 步骤
 
-- 执行 ```ssh-keygen -f blog-deploy-key```,在 ```.ssh/ ```文件中 生成一组 公钥(blog-deploy-key.pub)与私钥（blog-deploy-key）
-- 进入EvanHongYousan.github.io项目，```setting -> deploy keys -> add deploy key```,命名```p_rsa```，把 blog-deploy-key.pub 中的内容填入
-  > 这里注意，需要把```Allow write access```选项钩上
-- 进入blog项目，```setting -> Secrets -> add a new secret```,命名```s_rsa```,把 blog-deploy-key 中的内容填入
+- 执行 `ssh-keygen -f blog-deploy-key`,在 `.ssh/ `文件中 生成一组 公钥(blog-deploy-key.pub)与私钥（blog-deploy-key）
+- 进入EvanHongYousan.github.io项目，`setting -> deploy keys -> add deploy key`,命名`p_rsa`，把 blog-deploy-key.pub 中的内容填入
+  > 这里注意，需要把`Allow write access`选项钩上
+- 进入blog项目，`setting -> Secrets -> add a new secret`,命名`s_rsa`,把 blog-deploy-key 中的内容填入
 - hexo中的发布配置，改为ssh形式
 ```yml
 deploy:
@@ -29,7 +29,7 @@ deploy:
   branch: master #published
   message:
 ```
-- 最后在blog项目，新建 ```.github/workflows/main.yml``` 文件
+- 最后在blog项目，新建 `.github/workflows/main.yml` 文件
 ```
 name: Deploy Blog
 
