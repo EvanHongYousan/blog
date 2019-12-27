@@ -37,10 +37,10 @@ import { xxxMethod } from './Api'
 1. `git mv -f OldFileNameCase newfilenamecase`
 1. `git config core.ignorecase false`
 1.  ```
-    1. Rename FILE.ext to whatever.ext
-    1. Stage that file
-    1. Now rename whatever.ext to file.ext
-    1. Stage that file again
+    Rename FILE.ext to whatever.ext
+    Stage that file
+    Now rename whatever.ext to file.ext
+    Stage that file again
     ```
 
 >方法2也会引来问题，具体请看[解决 Git 默认不区分文件名大小写的问题](https://www.jianshu.com/p/df0b0e8bcf9b)
