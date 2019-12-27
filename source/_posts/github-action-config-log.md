@@ -5,6 +5,7 @@ categories: [tech]
 tags: [iframe, bug fix]
 ---
 
+![](/images/github-action-config-log/gif.gif)
 前两天看到个关键词是“github action”，经查询了解到是github的持续集成服务，今天来进行配置尝试 
 <escape><!-- more --></escape>
 
@@ -70,6 +71,8 @@ jobs:
         # publish
         hexo generate && hexo deploy # 执行部署程序
 ```
+- 至此，任意blog项目任意push后，都会出发githubpush
+![](/images/github-action-config-log/gif.gif)
 
 ## 参考
 
