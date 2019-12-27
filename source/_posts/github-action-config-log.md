@@ -2,7 +2,7 @@
 title: github action配置记录
 date: 2019-12-27 10:23:00
 categories: [tech]
-tags: [iframe, bug fix]
+tags: [github, 自动化, github action]
 ---
 
 ![](/images/github-action-config-log/gif.gif)
