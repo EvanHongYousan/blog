@@ -89,7 +89,7 @@ theme: next
 
 deploy:
   type: git
-  repo: https://github.com/EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: git@github.com:EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
   message: 
 
