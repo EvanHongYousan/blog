@@ -31,7 +31,7 @@ deploy:
   message:
 ```
 - 最后在blog项目，新建 `.github/workflows/main.yml` 文件
-```
+```yml
 name: Deploy Blog
 
 on: [push] # 当有新push时运行
@@ -60,8 +60,8 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         # set git infomation
-        git config --global user.name 'EvanHongYousan' # 换成你自己的邮箱和名字
-        git config --global user.email '1370204201@qq.com'
+        git config --global user.name 'XXXXXX' # 换成你自己的邮箱和名字
+        git config --global user.email 'XXXXXX'
         # install dependencies
         npm i -g hexo-cli # 安装hexo
         npm i
@@ -71,7 +71,7 @@ jobs:
         # publish
         hexo generate && hexo deploy # 执行部署程序
 ```
-- 至此，任意blog项目任意push后，都会出发githubpush
+- 至此，任意blog项目任意push后，都会出发github action
 ![](/images/github-action-config-log/gif.gif)
 
 ## 参考
