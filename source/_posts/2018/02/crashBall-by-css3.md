@@ -5,7 +5,7 @@ categories: [tech]
 tags: [css, html]
 ---
 
-![](/images/crashBall-by-css3/crash-ball.gif)
+{% asset_img crash-ball.gif %}
 <escape><!-- more --></escape>
 
 ## 具体代码

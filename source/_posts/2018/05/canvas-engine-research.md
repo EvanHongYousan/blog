@@ -56,15 +56,15 @@ Egret不仅仅提供了一个基于HTML5技术的游戏引擎，更是提供了�
 
 ## cocos creator
 
-![](/images/canvas-engine-research/cocos-creator.png)
+{% asset_img cocos-creator.png %}
 
 ## Egret Engine 2D
 
-![](/images/canvas-engine-research/Egret-Engine-2D.png)
+{% asset_img Egret-Engine-2D.png %}
 
 ## hilo
 
-![](/images/canvas-engine-research/hilo.png)
+{% asset_img hilo.png %}
 
 ## 比较
 

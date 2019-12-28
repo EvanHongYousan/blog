@@ -14,9 +14,9 @@ select id from positions where x0-r < x < x0+r and y0-r < y < y0+r
 ```
 
 不过，这种查询方式，在高并发场景，性能可能仍然达不到要求
-<escape><!-- more --></escape>
 
-![](/images/geohash/1.png)
+{% asset_img 1.png %}
+<escape><!-- more --></escape>
 
 
 ## geohash
@@ -27,9 +27,9 @@ select id from positions where x0-r < x < x0+r and y0-r < y < y0+r
 
 ### 原理
 
-![](/images/geohash/2.png)
+{% asset_img 2.png %}
 
-![](/images/geohash/3.png)
+{% asset_img 3.png %}
 
 假设有一个点[31.1932993, 121.43960190000007]，则：
 
@@ -40,11 +40,11 @@ select id from positions where x0-r < x < x0+r and y0-r < y < y0+r
 5. 按照“偶数位放经度，奇数位放纬度”的规则，重新组合经度和纬度的二进制串，11100 11001 00011 00111 10110
 6. 转换成十进制是 28 25 28 3 7 22，查表编码得到最终结果，wtw37q;
 
-![](/images/geohash/4.png)
+{% asset_img 4.png %}
 
-![](/images/geohash/5.png)
+{% asset_img 5.png %}
 
-![](/images/geohash/6.png)
+{% asset_img 6.png %}
 
 之后，作出查询时，就是：
 
@@ -55,18 +55,18 @@ select id from positions where geoHash like "wtw37%";
 ### 问题
 
 1. Z 阶曲线有一个比较严重的问题，虽然有局部保序性，但是它也有突变性。在每个 Z 字母的拐角，都有可能出现顺序的突变。
-![](/images/geohash/7.png)
+{% asset_img 7.png %}
 看上图中标注出来的蓝色的点点。每两个点虽然是相邻的，但是距离相隔很远。看右下角的图，两个数值邻近红色的点两者距离几乎达到了整个正方形的边长。两个数值邻近绿色的点也达到了正方形的一半的长度。
 
 >获取到的点都按勾股定理算一算，排除不合理的点
 
 2. Geohash 的另外一个缺点是，如果选择不好合适的网格大小，判断邻近点可能会比较麻烦。
-![](/images/geohash/8.png)
+{% asset_img 8.png %}
 
->![](/images/geohash/9.png)
+{% asset_img 9.png %}
 >仔细观察相邻方格，我们会发现两个小方格会在 经度或纬度的二进制码上相差1；我们通过 GeoHash 码反向解析出二进制码后，将其经度或纬度（或两者）的二进制码加一、减一，再次组合为 GeoHash码。然后获取到的点都按勾股定理算一算，排除不合理的点
 
 
 ## 使用
 
-![](/images/geohash/10.png)
+{% asset_img 10.png %}

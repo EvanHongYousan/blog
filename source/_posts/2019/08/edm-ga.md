@@ -6,6 +6,7 @@ tags: [用户增长, google analytics, 邮件营销]
 ---
 
 在非大陆环境下的营销活动中，邮件营销（edm）是不可或缺的一环。而邮件营销的效果，基本可由邮件打开率、邮件链接追踪情况得出。
+{% asset_img 7.png %}
 
 <escape><!-- more --></escape>
 
@@ -13,10 +14,10 @@ tags: [用户增长, google analytics, 邮件营销]
 
 1. 注册google账号，然后进入https://analytics.google.com/analytics/web/#/
 2. 创建媒体资源
-    1. 如果是新账号，则需要先新建ga账号![5fd789db98ad31015df312e0da755b34.png](/images/edm-ga/1.png)
-    2. 创建媒体资源![44571bffc118fcde4cdd13edc2c185a8.png](/images/edm-ga/2.png)
-    3. 进入媒体资源设置，获取到跟踪ID![409da0f6ad74aeb9958f6e9647224284.png](/images/edm-ga/3.png)
-    4. 点击“跟踪信息”，再点击“跟踪代码”，得到代码![034708cc94ded413c3cf9e3f78c3b381.png](/images/edm-ga/4.png)
+    1. 如果是新账号，则需要先新建ga账号{% asset_img 1.png %}
+    2. 创建媒体资源{% asset_img 2.png %}
+    3. 进入媒体资源设置，获取到跟踪ID{% asset_img 3.png %}
+    4. 点击“跟踪信息”，再点击“跟踪代码”，得到代码{% asset_img 4.png %}
 
 至此，准备完成
     
@@ -55,11 +56,11 @@ https://www.google-analytics.com/collect?v=1&tid=UA-146663661-1&cid=001&t=event&
 
 使用浏览器直接做get请求
 
-![8dd46459304a9334fafdea311881e237.png](/images/edm-ga/6.png)
+{% asset_img 6.png %}
 
 在ga中可以看到
 
-![5d4854cd85fa9aa2ccb23cb6912e376b.png](/images/edm-ga/7.png)
+{% asset_img 7.png %}
 
 >当然，使用img标签的缺陷，就在于当邮件系统阻挡图片时，上报会失效
 
@@ -76,7 +77,7 @@ https://act.moomoo.com/invite?code=643273466b693964783047384d452b397054794277773
 https://act.moomoo.com/invite?code=643273466b693964783047384d452b397054794277773d3d&type=promotion&utm_source=google&utm_medium=email&utm_campaign=invite_act&utm_term=invite%2Bstock&utm_content=invite_link
 ```
 
-![0f93466beac19889b9b825fa961d997d.png](/images/edm-ga/5.png)
+{% asset_img 5.png %}
 
 若目标页面引入了ga跟踪代码，ga跟踪代码会识别到链接上的get参数，进行上报时就会按照参数值进行归类整合
 

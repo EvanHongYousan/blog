@@ -5,7 +5,7 @@ categories: [tech]
 tags: [github, 自动化, github action]
 ---
 
-![](/images/github-action-config-log/gif.gif)
+{% asset_img gif.gif %}
 前两天看到个关键词是“github action”，经查询了解到是github的持续集成服务，今天来进行配置尝试 
 <escape><!-- more --></escape>
 
@@ -72,7 +72,7 @@ jobs:
         hexo generate && hexo deploy # 执行部署程序
 ```
 - 至此，任意blog项目任意push后，都会出发github action
-![](/images/github-action-config-log/gif.gif)
+{% asset_img gif.gif %}
 
 ## 参考
 
