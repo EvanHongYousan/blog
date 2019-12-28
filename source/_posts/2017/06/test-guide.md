@@ -5,7 +5,7 @@ categories: [tech]
 tags: [测试, 自动化]
 ---
 
-![](/images/test-guide/test_run.gif)
+{% asset_img test_run.gif %}
 
 <escape><!-- more --></escape>
 
@@ -126,7 +126,7 @@ D:\work\fe_tests_example (master) (fe_tests_example@1.0.0)
 mocha init fe_unit_tests
 ```
 可以看到项目下多了个 fe_unit_tests文件夹
-![](/images/test-guide/index.jpg)
+{% asset_img index.jpg %}
 
 建立fe_unit_tests/add.js文件
 ```
@@ -365,7 +365,7 @@ $ mocha .\ui_tests\*.js
 
 可以看到
 
-![](/images/test-guide/test_run.gif)
+{% asset_img test_run.gif %}
 
 以上就是一次完整的UI测试。
 
@@ -484,7 +484,7 @@ Lines        : 87.5% ( 7/8 )
 ```
 
 此时项目中生成了 coverage文件夹，打开coverage/lcov-report/index.html，可以看到：
-![](/images/test-guide/71873817.jpg)
+{% asset_img 71873817.jpg %}
 
 可以看到，ifElseTest.js中，其中有一个if-else代码块没有被测到。
 我们改写一下 ifElseTest.test.js文件：

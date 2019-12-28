@@ -13,4 +13,4 @@ tags: [webpack]
 
 <escape><!-- more --></escape>
 
-![](/images/webpack-config/overview.png)
+{% asset_img overview.png %}

@@ -8,4 +8,4 @@ tags: [redis]
 redis 是个单线程程序
 <escape><!-- more --></escape>
 
-![](/images/redis-io/overview.png)
+{% asset_img overview.png %}

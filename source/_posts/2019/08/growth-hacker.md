@@ -9,6 +9,6 @@ tags: [用户增长]
 
 <escape><!-- more --></escape>
 
-![](/images/growth-hacker/growthhacker.png)
+{% asset_img growthhacker.png %}
 
 [增长黑客](https://book.douban.com/subject/26541801/)

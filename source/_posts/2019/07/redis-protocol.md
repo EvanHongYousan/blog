@@ -8,4 +8,4 @@ tags: [redis]
 redis 通信协议：RESP(Redis Serialization Protocol)
 <escape><!-- more --></escape>
 
-![](/images/redis-protocol/overview.png)
+{% asset_img overview.png %}

@@ -9,4 +9,4 @@ tags: [node.js, bug fix]
 
 <escape><!-- more --></escape>
 
-![](/images/node-memory-leak/4ffd766c-a3aa-11e9-8f00-0a58ac13161b.png)
+{% asset_img 1.png %}

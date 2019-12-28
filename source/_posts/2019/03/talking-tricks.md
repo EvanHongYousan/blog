@@ -9,7 +9,7 @@ tags: [沟通技巧]
 
 <escape><!-- more --></escape>
 
-![](/images/talking-tricks/627b34fc-4ab1-11e9-a331-525400a20cd4.png)
+{% asset_img 1.png %}
 
 ## 引用
 

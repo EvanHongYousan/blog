@@ -10,7 +10,7 @@ author: evanyan
 
 正如我经常提到的那样，[文档树中的每个元素都是一个矩形盒子(盒模型)](https://bitsofco.de/controlling-the-box-model/)。一般来说，这个“矩形盒子”由两部分组成。首先我们有实际的盒子，它由边框，填充和边缘区域组成。其次，我们有盒子的内容-具体内容区域。
 
-![](/images/how-display-content-works/Group-3.png)
+{% asset_img Group-3.png %}
 <escape><!-- more --></escape>
 
 通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。通过display:inline，我们可以将这个盒子放在其兄弟姐妹中，就像文本一样。通过display:table，我们可以欺骗盒子，使其表现的像table元素一样。
@@ -49,11 +49,11 @@ author: evanyan
 
 通常情况下，我们期望在页面上绘制元素的方式会是这样 -
 
-![](/images/how-display-content-works/Screen-Shot-2018-03-27-at-9.21.56-am.png)
+{% asset_img Screen-Shot-2018-03-27-at-9.21.56-am.png %}
 
 但是，如果我们将display: contents添加到.outer元素样式中，那么它将这样显示 -
 
-![](/images/how-display-content-works/Screen-Shot-2018-03-27-at-9.23.20-am.png)
+{% asset_img Screen-Shot-2018-03-27-at-9.23.20-am.png %}
 
 从视觉上而言，上述结果与我们所期望的结果完全相同--元素的开始标签和结束标签被删除的话，的确会是这个样子。
 
@@ -116,7 +116,7 @@ author: evanyan
 
 上面的style标签会产生下面的样式 -
 
-![](/images/how-display-content-works/Screen-Shot-2018-03-27-at-9.44.20-am.png)
+{% asset_img Screen-Shot-2018-03-27-at-9.44.20-am.png %}
 
 ### 对from元素、img元素以及其他替换元素的影响
 
@@ -152,7 +152,7 @@ author: evanyan
 
 举个例子，我们来看这个布局 -
 
-![](/images/how-display-content-works/Screen-Shot-2018-03-27-at-10.27.27-am.png)
+{% asset_img Screen-Shot-2018-03-27-at-10.27.27-am.png %}
 
 我们有两张彼此相邻的“卡片”，每张都有一个标题，一个段落和一个页脚。我们想要的是每张卡内的每个部分都是相同的高度，而不管每个部分的内容如何（例如，第一张卡片的标题只有1行，而第二张卡片的标题有3行，但是第一张卡片的标题部分高度应该与第二张卡片相匹配）。
 
@@ -205,7 +205,7 @@ author: evanyan
 
 在撰写本文时，display:contents; 仅在两个主流浏览器中得到支持，其他支持很快就会到来。
 
-![](/images/how-display-content-works/caniuse.png)
+{% asset_img caniuse.png %}
 
 >2018年03月27日浏览器兼容状况
 

@@ -9,14 +9,14 @@ tags: [http, tcp, ip]
 
 http协议在TCP/IP协议群中的位置:
 
-![](/images/tcp-ip-http/tcpip.png)
+{% asset_img tcpip.png %}
 
 
 <escape><!-- more --></escape>
 
 TCP/IP协议群的分层：
 
-![](/images/tcp-ip-http/tcpip1.png)
+{% asset_img tcpip1.png %}
 
 其中，与HTTP关系密切的协议:
 
@@ -53,7 +53,7 @@ IP 间的通讯依赖 MAC地址，而 IP地址可以和 MAC地址进行配对，
 
 ## 这些协议在一次http请求中的作用
 
-![](/images/tcp-ip-http/tcpip3.png)
+{% asset_img tcpip3.png %}
 
 ## web页面性能优化与这几个协议的关系
 
