@@ -2,7 +2,7 @@
 title: web性能优化--图片部分之逐步加载图像
 date: 2019-12-29 14:32:46
 categories: [tech]
-tags: [图片压缩, 性能]
+tags: [图片压缩, 性能, webpack]
 ---
 
 {% asset_img gif.gif %}
