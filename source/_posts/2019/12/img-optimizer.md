@@ -2,7 +2,7 @@
 title: web性能优化之图片部分
 date: 2019-12-28 22:40:01
 categories: [tech]
-tags: [图片压缩, 性能]
+tags: [图片压缩, 性能, webpack]
 ---
 
 {% asset_img cover.png %}
