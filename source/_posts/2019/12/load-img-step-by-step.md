@@ -120,6 +120,8 @@ export default App;
 
 {% asset_img gif.gif %}
 
+>上述demo可看 [lqip-loader-demo](https://github.com/EvanHongYousan/lqip-loader-demo)
+
 ## 参考
 
 [lqip-loader](https://github.com/zouhir/lqip-loader)
