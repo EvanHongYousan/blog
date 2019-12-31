@@ -1,8 +1,8 @@
 ---
 title: 命令行中设置NODE_ENV时mac与windows的差异
 date: 2019-12-31 14:23:56
-categories:
-tags:
+categories: [tech]
+tags: [npm, NODE_ENV]
 ---
 
 <escape><!-- more --></escape>
