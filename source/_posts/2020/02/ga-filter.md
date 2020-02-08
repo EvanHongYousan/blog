@@ -37,7 +37,7 @@ https://域名/年/月/日/文章名称/
 2. 选择视图`2019-07's page`，过滤器->添加过滤条件
 {% asset_img 4.png %}
 {% asset_img 5.png %}
-3. 2019年7月下所有文章的URL中都带有`/2019/07/`(比如https://evanhongyousan.github.io/2019/07/09/redis-transaction/)，故过滤条件可以这么设置
+3. 2019年7月下所有文章的URL中都带有`/2019/07/`(比如https://evanhongyousan.github.io/2019/07/09/redis-transaction/ )，故过滤条件可以这么设置
 {% asset_img 6.png %}
 
 创建了新数据视图并设置好过滤器后，再过几小时，可以看到ga后台中会有相应数据：
