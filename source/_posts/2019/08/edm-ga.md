@@ -2,7 +2,7 @@
 title: 使用ga进行邮件营销跟踪
 date: 2019-08-29 21:33:55
 categories: [tech]
-tags: [用户增长, google analytics, 邮件营销]
+tags: [用户增长, google analytics, 邮件营销, google analytics solution]
 ---
 
 在非大陆环境下的营销活动中，邮件营销（edm）是不可或缺的一环。而邮件营销的效果，基本可由邮件打开率、邮件链接追踪情况得出。

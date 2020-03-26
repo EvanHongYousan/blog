@@ -2,7 +2,7 @@
 title: google analytics过滤器简单使用说明
 date: 2020-02-08 20:35:55
 categories: [tech]
-tags: [用户增长, google analytics, ga过滤器, 用户增长, google analysis solution]
+tags: [用户增长, google analytics, ga过滤器, 用户增长, google analytics solution]
 ---
 
 {% asset_img 1.gif %}
