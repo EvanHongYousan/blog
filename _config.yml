@@ -91,7 +91,7 @@ deploy:
   type: git
   repo: git@github.com:EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
-  message: update blog
+  message: 
 
 jsonContent:
     meta: false
