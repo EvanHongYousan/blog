@@ -100,3 +100,4 @@ Google Analytics Solution是一个完整的数据解决方案，从数据的收�
   - 另外，站点页面的pvuv数据也是在“行为”中看到
 - 转化：包含目标、电子商务、多渠道路径和归因
 
+## gtm（Google Tag Manager）基本概念
