@@ -1,8 +1,8 @@
 ---
 title: 禁止移动端右滑触发回退 & 禁止浏览器下拉刷新
 date: 2020-04-15 11:41:16
-categories:
-tags:
+categories: [tech]
+tags: [javascript]
 ---
 
 {% asset_img slide.gif %}
