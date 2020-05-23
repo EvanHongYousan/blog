@@ -2,7 +2,7 @@
 title: landing page builder 工作流描述与landing page builder 选型
 date: 2020-05-23 16:20:19
 categories: [tech]
-tags: [landing page builder, 用户增长, ga, gtm]
+tags: [landing page builder, google analytics, ga, google tag mananger, gtm, 用户增长]
 ---
 
 {% asset_img image2020-5-14_17-40-17.png %}
