@@ -133,5 +133,8 @@ symbols_count_time:
 
 # 图片懒加载
 lazyload:
-  enable: true 
+  enable: false 
   onlypost: false
+
+# 文章内容图片cdn配置，配合hexo-tag-asset-img插件
+asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
