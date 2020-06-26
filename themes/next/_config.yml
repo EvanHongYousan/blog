@@ -1112,7 +1112,10 @@ vendors:
   # canvas_ribbon:
 
 # Assets
-css: css
-js: js
-images: images
+# css: css
+# js: js
+# images: images
+css: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/css
+js: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/js
+images: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/images
 
