@@ -95,3 +95,26 @@ https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/2020/05/23/l
 ```
 
 ## step 5
+
+完成上述步骤后，可以看到页面加载仍有资源阻塞
+
+```
+# 404
+https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext
+```
+
+{% asset_img step5.png %}
+
+则使用 fonts.googleapis.com 镜像处理字体资源文件加载失败的问题
+
+根目录下```_config.yml```
+
+```javascript
+font:
+  # Use custom fonts families or not.
+  # Depended options: `external` and `family`.
+  enable: true
+
+  # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
+  host: //fonts.loli.net
+```
