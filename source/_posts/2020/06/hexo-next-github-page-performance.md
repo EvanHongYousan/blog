@@ -13,7 +13,7 @@ tags: [性能, cdn, 部署, hexo]
 
 站点使用 hexo next 主题，配置文件中已经带了使用 jsDelivr cdn 的资源配置实例，用户启用便可
 
-根目录下```themes\next\_config.yml```文件中，vendors项下，所有资源皆可配置使用 jsDelivr cdn
+根目录下`themes\next\_config.yml`文件中，vendors项下，所有资源皆可配置使用 jsDelivr cdn
 
 ```javascript
 vendors:
@@ -31,7 +31,7 @@ vendors:
 
 站点静态资源，也使用 jsDelivr cdn
 
-根目录下```themes\next\_config.yml```
+根目录下`themes\next\_config.yml`
 
 ```javascript
 # Assets
@@ -47,9 +47,9 @@ images: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/imag
 
 使用图片懒加载，减少首屏加载时间
 
-项目根目录下，执行 ```npm install hexo-lazyload-image --save```
+项目根目录下，执行 `npm install hexo-lazyload-image --save`
 
-根目录下```_config.yml```
+根目录下`_config.yml`
 
 ```javascript
 # 图片懒加载
@@ -64,25 +64,25 @@ lazyload:
 
 博客开启了 post_asset_folder 选项
 
-根目录下```_config.yml```
+根目录下`_config.yml`
 
 ```javascript
 post_asset_folder: true
 ```
 
-并在文章中使用 ```{% asset_img 1.png %}```这种方式引用图片，则打包出来的图片，会是这种形式：
+并在文章中使用 `{% asset_img 1.png %}`这种方式引用图片，则打包出来的图片，会是这种形式：
 
 ```javascript
 https://evanhongyousan.github.io/2020/05/23/landing-page-builder-introduct/image2020-5-14_17-40-17.png
 ```
 
-可以看到图片并不在 ```images``` 文件夹中，则文章图片并未使用cdn加速
+可以看到图片并不在 `images` 文件夹中，则文章图片并未使用cdn加速
 
 ### 处理
 
-执行 ```npm install hexo-tag-asset-img --save```
+执行 `npm install hexo-tag-asset-img --save`
 
-根目录下```_config.yml```
+根目录下`_config.yml`
 
 ```javascript
 asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
@@ -107,7 +107,7 @@ https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700
 
 则使用 fonts.googleapis.com 镜像处理字体资源文件加载失败的问题
 
-根目录下```_config.yml```
+根目录下`_config.yml`
 
 ```javascript
 font:
