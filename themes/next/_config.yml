@@ -1119,3 +1119,5 @@ css: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/css
 js: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/js
 images: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/images
 
+# darkmode.js
+darkmode_js: true

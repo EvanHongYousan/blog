@@ -65,3 +65,33 @@
   {%- set internal_script = next_vendors(internal) %}
   <script defer src="{{ theme.vendors[name] | default(internal_script) }}"></script>
 {%- endfor %}
+
+{%- if theme.darkmode_js %}
+  <style>
+    .darkmode-toggle {
+      z-index: 9999;
+    }
+    img, .darkmode-ignore {
+      isolation: isolate;
+      display: block;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
+  <script>
+  var options = {
+    bottom: '64px', // default: '32px'
+    right: '32px', // default: '32px'
+    left: 'unset', // default: 'unset'
+    time: '0.3s', // default: '0.3s'
+    mixColor: '#fff', // default: '#fff'
+    backgroundColor: '#fff',  // default: '#fff'
+    buttonColorDark: '#100f2c',  // default: '#100f2c'
+    buttonColorLight: '#fff', // default: '#fff'
+    saveInCookies: true, // default: true,
+    label: '🌙', // default: ''🌓
+    autoMatchOsTheme: true // default: true
+  }
+  var darkmode = new Darkmode(options);
+  darkmode.showWidget();
+  </script>
+{%- endif %}
