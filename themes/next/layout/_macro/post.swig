@@ -182,7 +182,7 @@
           {%- set COLUMN_NUMBER = 3 %}
           {%- for photo in post.photos %}
             {%- if loop.index0 % COLUMN_NUMBER === 0 %}<div class="post-gallery-row">{%- endif %}
-              <img src="{{ url_for(photo) }}" itemprop="contentUrl">
+              <img src="https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io{{ url_for(photo) }}" itemprop="contentUrl">
             {%- if loop.index0 % COLUMN_NUMBER === 2 %}</div>{%- endif %}
           {%- endfor %}
 
