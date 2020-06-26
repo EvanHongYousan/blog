@@ -2,7 +2,7 @@
 title: hexo next github page 性能优化记录
 date: 2020-06-26 11:38:37
 categories: [tech]
-tags: [性能, cdn, 部署]
+tags: [性能, cdn, 部署, hexo]
 ---
 
 {% asset_img rocky.gif %}
