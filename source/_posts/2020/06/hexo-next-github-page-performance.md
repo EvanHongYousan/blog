@@ -13,7 +13,7 @@ tags: [性能, cdn, 部署, hexo]
 
 站点使用 hexo next 主题，配置文件中已经带了使用 jsDelivr cdn 的资源配置实例，用户启用便可
 
-根目录下`themes\next\_config.yml`文件中，vendors项下，所有资源皆可配置使用 jsDelivr cdn
+根目录下`themes\next\_config.yml`文件中，vendors项下，所有资源皆可配置使用 `jsDelivr cdn`
 
 ```javascript
 vendors:
