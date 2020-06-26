@@ -118,3 +118,10 @@ font:
   # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
   host: //fonts.loli.net
 ```
+
+## 使用的cdn、插件、镜像
+
+- [jsDelivr](https://www.jsdelivr.com/)
+- [hexo-lazyload-image](https://www.npmjs.com/package/hexo-lazyload-image)
+- [hexo-tag-asset-img](https://github.com/victor-fdez/hexo-tag-asset-img)
+- [fonts.loli.net](https://sb.sb/blog/css-cdn/)
