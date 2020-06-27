@@ -6,6 +6,7 @@ tags: [human resources, growth]
 - 银行侧接下来会继续投入很多营销资源，银行侧web开发会承担较大的运营类页面开发压力
 - 保险侧暂时未集中投入营销资源，对应开发压力暂未到来
 - IF web 1.0 project 仍有一个需求需要完成
+- 运营平台方面需要确定方向
 
 <escape><!-- more --></escape>
 
