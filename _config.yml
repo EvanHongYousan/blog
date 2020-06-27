@@ -132,9 +132,23 @@ symbols_count_time:
   total_time: true
 
 # 图片懒加载
+# hexo-lazyload-image
 lazyload:
-  enable: true 
+  enable: false 
   onlypost: false
-
 # 文章内容图片cdn配置，配合hexo-tag-asset-img插件
 asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
+
+douban:
+  user: 185733944
+  builtin: false
+  book:
+    title: ''
+    quote: ''
+  movie:
+    title: ''
+    quote: ''
+  game:
+    title: ''
+    quote: ''
+  timeout: 10000 

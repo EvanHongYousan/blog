@@ -164,6 +164,9 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  books: /books/ || book    # 这是链接到books页面
+  movies: /movies/ || film   #  这是链接到movies页面
+  games: /games/ || gamepad  # 这是链接到games页面
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -198,6 +201,7 @@ site_state: true
 social:
   GitHub: https://github.com/EvanHongYousan || github
   E-Mail: mailto:1370204201@qq.com || envelope
+  豆瓣: https://www.douban.com/people/185733944/
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
