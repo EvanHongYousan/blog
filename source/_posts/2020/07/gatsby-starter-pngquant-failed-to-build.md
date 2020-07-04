@@ -4,7 +4,7 @@ tags:
   - gatsby
   - pngquant
 date: 2020-07-04 13:26:55
-categories:
+categories: [tech]
 ---
 
 {% asset_img images.png %}
