@@ -15,14 +15,21 @@ tags: [iframe, iOS, scroll, bug fix]
 
 <escape><!-- more --></escape>
 
-- 解决
+- 处理
 
-```html
-<div style="overflow:scroll !important; -webkit-overflow-scrolling:touch !important;">
-     <iframe src="YOUR_PAGE_URL" width="600" height="400"></iframe>
-</div>
-```
+1. 
+    ```html
+    <div style="overflow:scroll !important; -webkit-overflow-scrolling:touch !important;">
+        <iframe src="YOUR_PAGE_URL" width="600" height="400"></iframe>
+    </div>
+    ```
+2. 触发弹框中 input 元素 blur 事件时，对弹框聚焦
+3. 对于可能产生滚动条的子元素，设置子元素的 min-height 大于父元素的 height，尽量使iOS产生scrollView
+
+>问题未彻底解决：在上述三种处理方式叠加后，频繁触发input blur事件，仍有小几率触发弹框无法滚动的现象
 
 - 参考
 
 https://stackoverflow.com/questions/4599153/iframes-and-the-safari-on-the-ipad-how-can-the-user-scroll-the-content
+
+https://segmentfault.com/a/1190000016408566
