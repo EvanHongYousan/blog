@@ -1,9 +1,17 @@
 ---
 title: 记录一份统一登陆注册前端组件与bff层开发方案
+categories:
+  - tech
+tags:
+  - sso
+  - javascript
+  - node
+  - exporess
+  - iframe
+  - postMessage
 date: 2020-06-22 20:15:21
-categories: [tech]
-tags: [sso, javascript, node, exporess, iframe, postMessage]
 ---
+
 
 {% asset_img 1.png %}
 
