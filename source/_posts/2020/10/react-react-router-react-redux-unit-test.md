@@ -1,8 +1,16 @@
 ---
 title: react+react-router+react-redux项目单元测试实践记录
-categories: [tech]
-tags: [test, 自动化测试, jest, enzyme]
+categories:
+  - tech
+tags:
+  - test
+  - 自动化测试
+  - jest
+  - enzyme
+  - redux
+date: 2020-10-11 14:24:03
 ---
+
 
 {% asset_img 1.png %}
 
@@ -354,3 +362,151 @@ it('click "get userInfo"', async () => {
 })
 
 ```
+
+## redux场景下组件测试
+
+- 对于使用redux进行状态管理的应用，必定会有组件使用react-redux提供的hooks去获取状态、更新状态
+- 根据上面的实践，明显可以看出：进行这类组件的单元测试，必须对react-redux的hooks进行mock
+- 对此，已经有完整的mock工具可供使用：redux-mock-store
+
+### 实例
+
+- src/components/Banner/storeSlice.tsx
+
+```javascript
+/* istanbul ignore file */
+// TODO Test
+
+import { createSlice } from '@reduxjs/toolkit'
+
+interface UserInfoType {
+  cnName: string
+  enName: string
+}
+
+const defaultUserInfo: UserInfoType = {
+  cnName: '',
+  enName: ''
+}
+
+export const slice = createSlice({
+  name: 'userInfo',
+  initialState: {
+    userInfo: defaultUserInfo
+  },
+  reducers: {
+    updateUserInfo(state, action): void {
+      state.userInfo = action.payload
+    }
+  }
+})
+
+export const { updateUserInfo } = slice.actions
+
+export const selectUserInfo = (state: any): UserInfoType => state.userInfo.userInfo
+
+export default slice.reducer
+
+```
+> 关于 storeSlice 这种写法，可以看 [@reduxjs/toolkit](https://redux-toolkit.js.org/)
+
+- src/components/Banner/index.tsx
+
+```javascript
+import React, { useState } from 'react'
+import { getUserInfo } from '@/pages/card-mgmt/api'
+import { selectUserInfo } from './storeSlice'
+import { useSelector } from 'react-redux'
+
+function Banner(): JSX.Element {
+  const [text, setText] = useState('banner')
+  // 这里使用了 react-redux 的 hook
+  const userInfo = useSelector(selectUserInfo)
+
+  const clickHandle = (): void => {
+    setText('clicked')
+  }
+  return (
+    <div>
+      {text}
+      {userInfo.cnName}
+      {userInfo.enName}
+      <button id="btn" onClick={clickHandle}>
+        click
+      </button>
+      <button
+        id="jump"
+        onClick={(): void => {
+          location.href = 'jump success'
+        }}
+      >
+        jump
+      </button>
+      <button
+        id="getUserAgent"
+        onClick={(): void => {
+          setText(window.navigator.userAgent)
+        }}
+      >
+        getUserAgent
+      </button>
+      <button
+        id="getUserInfo"
+        onClick={async (): Promise<void> => {
+          const result = await getUserInfo()
+          setText(result.cnName)
+        }}
+      >
+        getUserInfo
+      </button>
+    </div>
+  )
+}
+
+export default Banner
+
+```
+
+- src/components/Banner/index.test.tsx
+
+```javascript
+import React from 'react'
+import Banner from './index'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+it('should render correctly with redux store', () => {
+  const mockStore = configureStore([])
+  const store = mockStore({
+    userInfo: {
+      userInfo: {
+        cnName: '马马马马马马',
+        enName: 'horsehorsehorsehorse'
+      }
+    }
+  })
+  const wrapper = mount(
+    <Provider store={store}>
+      <Banner />
+    </Provider>
+  )
+  expect(wrapper.text()).toContain('马')
+  expect(wrapper.text()).toContain('horse')
+})
+```
+
+## 前端单元测试执行套路
+
+经过一些实践后，提炼出下面三个方面的测试：
+
+- 展示性测试：用于测试组件内容是否正常展示，展示的各项内容是否完整、正确
+- 交互性测试：用于测试组件涉及的交互，是否可以正常输出，正常输出，并对输入、输出做校验
+- 快照测试：快照测试让开发人员明确自身对组件的修改，会有多大的波及度，具体可看[Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
+
+## 参考
+
+- [jest doc](https://jestjs.io/docs/en/getting-started)
+- [enzyme doc](https://github.com/enzymejs/enzyme)
+- [Best Practices for Testing a React/Redux Toolkit App](https://www.xtivia.com/best-practices-for-testing-a-react-redux-toolkit-app/)
+- [est ignore or exclude file/function/statement from test coverage](https://codewithhugo.com/jest-exclude-coverage/)
