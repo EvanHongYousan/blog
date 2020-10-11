@@ -4,7 +4,7 @@
 
 # Site
 title: Evan's blog
-subtitle: 
+subtitle:
 description:
 keywords:
 author: evanhongyousan
@@ -43,7 +43,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -55,7 +55,7 @@ index_generator:
 auto_excerpt:
   enable: true
   length: 150
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -85,7 +85,7 @@ theme: next
 #   type: git
 #   repo: https://github.com/EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
 #   branch: master #published
-#   message: 
+#   message:
 
 # repo: https://gitee.com/EvanHongYousan/EvanHongYousan.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
 
@@ -93,27 +93,27 @@ deploy:
   type: git
   repo: git@github.com:EvanHongYousan/EvanHongYousan.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
-  message: 
+  message:
 
 jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-    
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
+
 feed: # RSS订阅插件
   type: atom
   path: atom.xml
@@ -136,10 +136,10 @@ symbols_count_time:
 # 图片懒加载
 # hexo-lazyload-image
 lazyload:
-  enable: false 
+  enable: false
   onlypost: false
 # 文章内容图片cdn配置，配合hexo-tag-asset-img插件
-asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
+# asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
 
 douban:
   user: 185733944
@@ -153,4 +153,4 @@ douban:
   game:
     title: ''
     quote: ''
-  timeout: 10000 
+  timeout: 10000
