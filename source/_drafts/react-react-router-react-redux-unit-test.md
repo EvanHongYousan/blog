@@ -39,6 +39,7 @@ ps: 在开始使用typescript的类型约束后，也会有上述变化产生
 #### 实例
 
 - utils/index.tsx
+
 ```javascript
 function sum(a:number, b:number){
   return a+b
@@ -46,7 +47,8 @@ function sum(a:number, b:number){
 export {sum}
 ```
 
-- utils/index.tsx
+- utils/index.test.tsx
+
 ```javascript
 import {sum} from './index'
 
@@ -64,6 +66,7 @@ it('test sum', () => {
 #### 实例
 
 - src/components/Banner/index.tsx
+
 ```javascript
 import React from 'react'
 
@@ -75,6 +78,7 @@ export default Banner
 ```
 
 - src/components/Banner/index.test.tsx
+
 ```javascript
 import React from 'react'
 import Banner from './index'
@@ -95,6 +99,7 @@ it('should render correctly', () => {
 #### 实例
 
 - src/components/Banner/index.tsx
+
 ```javascript
 import React, { useState } from 'react'
 
@@ -119,6 +124,7 @@ export default Banner
 ```
 
 - src/components/Banner/index.test.tsx
+
 ```javascript
 import React from 'react'
 import Banner from './index'
@@ -134,3 +140,217 @@ it('click the button and change text', () => {
 ```
 
 ### dom操作交互测试
+
+- 涉及dom操作、bom操作、api操作的部分，可以使用`mock`
+
+#### 实例
+
+- src/components/Banner/index.tsx
+
+```javascript
+import React, { useState } from 'react'
+
+function Banner(): JSX.Element {
+  const [text, setText] = useState('banner')
+
+  const clickHandle = (): void => {
+    setText('clicked')
+  }
+  return (
+    <div>
+      {text}
+      <button id="btn" onClick={clickHandle}>
+        click
+      </button>
+      <button
+        id="jump"
+        onClick={(): void => {
+          location.href = 'jump success'
+        }}
+      >
+        jump
+      </button>
+    </div>
+  )
+}
+
+export default Banner
+
+```
+
+- src/components/Banner/index.test.tsx
+
+```javascript
+import React from 'react'
+import Banner from './index'
+import { shallow } from 'enzyme'
+
+beforeAll(() => {
+  Object.defineProperty(window, 'location', {
+    writable: true,
+    value: {
+      href: 'mock success'
+    }
+  })
+})
+
+it('test jump', () => {
+  const wrapper = shallow(<Banner />)
+  expect(window.location.href).toBe('mock success')
+  wrapper.find('#jump').simulate('click')
+  expect(window.location.href).toBe('jump success')
+})
+```
+
+### bom操作交互测试
+
+- bom操作和dom类似
+
+#### 实例
+
+- src/components/Banner/index.tsx
+
+```javascript
+import React, { useState } from 'react'
+
+function Banner(): JSX.Element {
+  const [text, setText] = useState('banner')
+
+  const clickHandle = (): void => {
+    setText('clicked')
+  }
+  return (
+    <div>
+      {text}
+      <button id="btn" onClick={clickHandle}>
+        click
+      </button>
+      <button
+        id="jump"
+        onClick={(): void => {
+          location.href = 'jump success'
+        }}
+      >
+        jump
+      </button>
+      <button
+        id="getUserAgent"
+        onClick={(): void => {
+          setText(window.navigator.userAgent)
+        }}
+      >
+        jump
+      </button>
+    </div>
+  )
+}
+
+export default Banner
+
+```
+
+- src/components/Banner/index.test.tsx
+
+```javascript
+import React from 'react'
+import Banner from './index'
+import { shallow } from 'enzyme'
+
+beforeAll(() => {
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'get userAgent success'
+    }
+  })
+})
+
+it('click "get useragen"', () => {
+  const wrapper = shallow(<Banner />)
+  wrapper.find('#getUserAgent').simulate('click')
+  expect(wrapper.text()).toContain('get userAgent success')
+})
+
+```
+
+### service api 操作交互测试
+
+- api 相关的mock会有一点差异
+
+#### 实例
+
+- src/components/Banner/index.tsx
+
+```javascript
+import React, { useState } from 'react'
+import { getUserInfo } from '@/pages/card-mgmt/api'
+
+function Banner(): JSX.Element {
+  const [text, setText] = useState('banner')
+
+  const clickHandle = (): void => {
+    setText('clicked')
+  }
+  return (
+    <div>
+      {text}
+      <button id="btn" onClick={clickHandle}>
+        click
+      </button>
+      <button
+        id="jump"
+        onClick={(): void => {
+          location.href = 'jump success'
+        }}
+      >
+        jump
+      </button>
+      <button
+        id="getUserAgent"
+        onClick={(): void => {
+          setText(window.navigator.userAgent)
+        }}
+      >
+        getUserAgent
+      </button>
+      <button
+        id="getUserInfo"
+        onClick={async (): Promise<void> => {
+          const result = await getUserInfo()
+          setText(result.cnName)
+        }}
+      >
+        getUserInfo
+      </button>
+    </div>
+  )
+}
+
+export default Banner
+
+```
+
+- src/components/Banner/index.test.tsx
+
+```javascript
+import React from 'react'
+import Banner from './index'
+import { shallow } from 'enzyme'
+import { act } from 'react-dom/test-utils'
+
+jest.mock('@/pages/card-mgmt/api', () => ({
+  ...(jest.requireActual('@/pages/card-mgmt/api') as any),
+  getUserInfo: jest
+    .fn()
+    .mockImplementation(() => Promise.resolve({ cnName: '火箭', enName: 'rocket' }))
+}))
+
+it('click "get userInfo"', async () => {
+  const wrapper = shallow(<Banner />)
+  await act(async () => {
+    wrapper.find('#getUserInfo').simulate('click')
+  })
+  expect(wrapper.text()).toContain('火箭')
+})
+
+```
