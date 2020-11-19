@@ -500,6 +500,7 @@ it('should render correctly with redux store', () => {
 
 经过一些实践后，提炼出下面三个方面的测试：
 
+- 纯函数测试：测试工具类纯函数是否符合预期
 - 展示性测试：用于测试组件内容是否正常展示，展示的各项内容是否完整、正确
 - 交互性测试：用于测试组件涉及的交互，是否可以正常输出，正常输出，并对输入、输出做校验
 - 快照测试：快照测试让开发人员明确自身对组件的修改，会有多大的波及度，具体可看[Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
