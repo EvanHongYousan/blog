@@ -1,4 +1,4 @@
-name: Blog CI
+name: Deploy Gitee Page
 
 on: [push] # 当有新push时运行
 
@@ -28,6 +28,7 @@ jobs:
         echo "$GITEE_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+        ssh -T git@gitee.com
         # set git infomation
         git config --global user.name 'EvanHongYousan' # 换成你自己的邮箱和名字
         git config --global user.email '1370204201@qq.com'
