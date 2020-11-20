@@ -36,13 +36,11 @@ jobs:
           npm i
 
       - name: Deploy Gitee Page
-        env:
-          CURRENT_TIME: ${{ steps.date.outputs.date }}
         run: |
           hexo generate && hexo douban 
           cd public
           git init
           git add .
           git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
-          git commit -m 'Site updated: $CURRENT_TIME'
+          git commit -m 'Site updated'
           git push origin master -f

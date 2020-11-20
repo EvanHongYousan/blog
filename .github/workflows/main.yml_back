@@ -20,7 +20,7 @@ jobs:
 
       - name: Setup Hexo env
         env:
-          GITHUB_DEPLOY_KEY: ${{ secrets.s_rsa }}
+          GITHUB_DEPLOY_KEY: ${{ secrets.blog_ci_rsa }}
         run: |
           # set up private key for deploy
           mkdir -p ~/.ssh/
