@@ -21,21 +21,28 @@ jobs:
     
     - name: Setup Hexo env
       env:
-        ACTION_DEPLOY_KEY: ${{ secrets.s_rsa }}
+        GITEE_DEPLOY_KEY: ${{ secrets.gitee }}
       run: |
         # set up private key for deploy
         mkdir -p ~/.ssh/
-        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
+        echo "$GITEE_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        ssh-keyscan gitee.com >> ~/.ssh/known_hosts
         # set git infomation
         git config --global user.name 'EvanHongYousan' # 换成你自己的邮箱和名字
         git config --global user.email '1370204201@qq.com'
         # install dependencies
         npm i -g hexo-cli # 安装hexo
         npm i
-  
-    - name: Deploy GitHub Page
+
+    - name: Deploy Gitee Page
       run: |
-        # publish
-        hexo generate && hexo douban && hexo deploy # 执行部署程序
+        hexo generate && hexo douban 
+        cd public
+        git init
+        git config user.name "EvanHongYousan"
+        git config user.email "1370204201@qq.com"
+        git add .
+        git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
+        git commit -m 'Deploy Gitee Page'
+        git push origin master -f
