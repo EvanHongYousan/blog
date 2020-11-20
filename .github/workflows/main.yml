@@ -45,10 +45,9 @@ jobs:
 
       - name: Deploy Gitee Page
         run: |
-          hexo generate && hexo douban 
           cd public
           git init
           git add .
           git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
           git commit -m 'Site updated'
-          git push origin master -f
+          git push origin master -f -i ~/.ssh/gitee_rsa
