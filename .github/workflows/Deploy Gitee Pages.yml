@@ -1,4 +1,4 @@
-name: Deploy Gitee Page
+name: Deploy Gitee Pages
 
 on: [push] # 当有新push时运行
 
@@ -37,13 +37,13 @@ jobs:
         npm i
 
     - name: Deploy Gitee Page
+      env: 
+        CURRENT_TIME: ${{ steps.date.outputs.date }}
       run: |
         hexo generate && hexo douban 
         cd public
         git init
-        git config user.name "EvanHongYousan"
-        git config user.email "1370204201@qq.com"
         git add .
         git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
-        git commit -m 'Site updated: ${{ steps.date.outputs.date }}'
+        git commit -m 'Site updated: $CURRENT_TIME'
         git push origin master -f

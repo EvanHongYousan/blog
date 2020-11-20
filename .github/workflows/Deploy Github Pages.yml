@@ -1,4 +1,4 @@
-name: Blog CI
+name: Deploy Github Pages
 
 on: [push] # 当有新push时运行
 
