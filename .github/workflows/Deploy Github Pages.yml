@@ -1,4 +1,4 @@
-name: Deploy Gitee Pages
+name: Blog CI
 
 on: [push] # 当有新push时运行
 
@@ -21,29 +21,21 @@ jobs:
     
     - name: Setup Hexo env
       env:
-        GITEE_DEPLOY_KEY: ${{ secrets.gitee }}
+        ACTION_DEPLOY_KEY: ${{ secrets.s_rsa }}
       run: |
         # set up private key for deploy
         mkdir -p ~/.ssh/
-        echo "$GITEE_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
+        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan gitee.com >> ~/.ssh/known_hosts
-        ssh -T git@gitee.com
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
         # set git infomation
         git config --global user.name 'EvanHongYousan' # 换成你自己的邮箱和名字
         git config --global user.email '1370204201@qq.com'
         # install dependencies
         npm i -g hexo-cli # 安装hexo
         npm i
-
-    - name: Deploy Gitee Page
-      env: 
-        CURRENT_TIME: ${{ steps.date.outputs.date }}
+  
+    - name: Deploy GitHub Page
       run: |
-        hexo generate && hexo douban 
-        cd public
-        git init
-        git add .
-        git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
-        git commit -m 'Site updated: $CURRENT_TIME'
-        git push origin master -f
+        # publish
+        hexo generate && hexo douban && hexo deploy # 执行部署程序
