@@ -45,6 +45,6 @@ jobs:
         cd public
         git init
         git add .
-        git remote add origin https://github.com/EvanHongYousan/EvanHongYousan.github.io.git
+        git remote add origin https://gitee.com/EvanHongYousan/EvanHongYousan.git
         git commit -m 'Deploy Gitee Page'
         git push origin master -f
