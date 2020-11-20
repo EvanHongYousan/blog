@@ -41,12 +41,18 @@ jobs:
         hexo generate && hexo douban && hexo deploy # 执行部署程序
 
     - name: Deploy Gitee Page
+      env:
+        GITEE_DEPLOY_KEY: ${{ secrets.gitee }}
+      run: |
+        echo "$GITEE_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan gitee.com >> ~/.ssh/known_hosts
       run: |
         cd public
         git init
         git config user.name "EvanHongYousan"
-        git config user.name "1370204201@qq.com"
+        git config user.email "1370204201@qq.com"
         git add .
-        git remote add origin https://gitee.com/EvanHongYousan/EvanHongYousan.git
+        git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
         git commit -m 'Deploy Gitee Page'
         git push origin master -f
