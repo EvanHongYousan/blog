@@ -21,7 +21,7 @@ jobs:
     
     - name: Setup Hexo env
       env:
-        ACTION_DEPLOY_KEY: ${{ secrets.s_rsa }}
+        ACTION_DEPLOY_KEY: ${{ secrets.blog_ci_rsa }}
       run: |
         # set up private key for deploy
         mkdir -p ~/.ssh/
