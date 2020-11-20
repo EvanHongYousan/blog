@@ -45,5 +45,5 @@ jobs:
         git config user.email "1370204201@qq.com"
         git add .
         git remote add origin git@gitee.com:EvanHongYousan/EvanHongYousan.git
-        git commit -m 'Deploy Gitee Page'
+        git commit -m 'Site updated: ${{ steps.date.outputs.date }}'
         git push origin master -f
