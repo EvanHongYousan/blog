@@ -44,6 +44,8 @@ jobs:
       run: |
         cd public
         git init
+        git config user.name "EvanHongYousan"
+        git config user.name "1370204201@qq.com"
         git add .
         git remote add origin https://gitee.com/EvanHongYousan/EvanHongYousan.git
         git commit -m 'Deploy Gitee Page'
