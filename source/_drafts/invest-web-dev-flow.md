@@ -4,6 +4,8 @@ categories: [tech]
 tags: [git flow, unit test, gitlat ci]
 ---
 
+{% asset_img ivnest_web_work_flow.png %}
+
 {% asset_img invest_git_flow.png %}
 
 <escape><!-- more --></escape>
