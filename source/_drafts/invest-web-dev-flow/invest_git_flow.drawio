@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-11-22T16:26:31.631Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="W2Q5K8QDMYJkGmBO2mjt" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-23T11:50:27.215Z" agent="5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="t3ra-H8c_yA9TkuXHwna" version="13.6.5">
     <diagram id="xNYQZJzs4asAlTk9GyYr" name="第 1 页">
-        <mxGraphModel dx="1047" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="1">
+        <mxGraphModel dx="771" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -79,9 +79,6 @@
                         <mxPoint x="312.25" y="335" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="BRKJ1WWOMvI8rDlJ2ooS-54" value="invest git flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="532" y="40" width="538" height="40" as="geometry"/>
-                </mxCell>
                 <mxCell id="BRKJ1WWOMvI8rDlJ2ooS-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;endArrow=none;endFill=0;strokeWidth=4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="BRKJ1WWOMvI8rDlJ2ooS-106" target="BRKJ1WWOMvI8rDlJ2ooS-7" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="570.25" y="250" as="targetPoint"/>
@@ -125,7 +122,7 @@
                         <mxPoint x="390" y="335" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="0ogijX6JbmhKY_mySqg3-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeWidth=4;curved=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" target="BRKJ1WWOMvI8rDlJ2ooS-106" edge="1" source="0ogijX6JbmhKY_mySqg3-15">
+                <mxCell id="0ogijX6JbmhKY_mySqg3-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeWidth=4;curved=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="0ogijX6JbmhKY_mySqg3-15" target="BRKJ1WWOMvI8rDlJ2ooS-106" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="478.04999999999995" y="265" as="targetPoint"/>
                         <mxPoint x="510" y="335" as="sourcePoint"/>
