@@ -11,7 +11,6 @@ tags:
 date: 2020-10-11 14:24:03
 ---
 
-
 {% asset_img 1.png %}
 
 给项目添加测试，并不单纯只是工具使用上的变化和代码量的增加，更为本质的变化，是代码设计上的变化、开发工作模式的变化
@@ -504,6 +503,10 @@ it('should render correctly with redux store', () => {
 - 展示性测试：用于测试组件内容是否正常展示，展示的各项内容是否完整、正确
 - 交互性测试：用于测试组件涉及的交互，是否可以正常输出，正常输出，并对输入、输出做校验
 - 快照测试：快照测试让开发人员明确自身对组件的修改，会有多大的波及度，具体可看[Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
+
+## 实际运行
+
+{% asset_img unit-test-running.gif %}
 
 ## 参考
 
