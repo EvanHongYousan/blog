@@ -163,7 +163,7 @@ steam:
   quote: ''
   tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
   length: 1000
-  imgUrl:
+  imgUrl: 'https://steamcommunity.com/profiles/76561198254399899/'
   proxy:
     host:
     port:
