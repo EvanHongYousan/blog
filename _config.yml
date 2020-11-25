@@ -154,3 +154,16 @@ douban:
     title: ''
     quote: ''
   timeout: 10000
+
+steam:
+  enable: true
+  steamId: '76561198254399899' #steam 64位Id
+  path: steamgames/index.html
+  title: Steam游戏库
+  quote: ''
+  tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
+  length: 1000
+  imgUrl:
+  proxy:
+    host:
+    port:
