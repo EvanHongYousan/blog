@@ -1,10 +1,11 @@
 ---
-title: invest web团队工作流说明 -- 关于 git工作流、代码校验与单元测试、持续集成的结合
+title: invest web团队工作流说明 -- 关于 git工作流、代码校验、单元测试、持续集成的结合
 categories: [tech]
 tags: [git flow, unit test, gitlab ci]
 ---
 
-{% asset_img invest_git_flow.png %}
+{% asset_img unit-test-running.gif %}
+<!-- {% asset_img invest_git_flow.png %} -->
 
 <escape><!-- more --></escape>
 
@@ -13,6 +14,7 @@ tags: [git flow, unit test, gitlab ci]
 - 原git开发模式的问题
   - 关键分支未收到严格保护，代码review未收到严格约束
   - sit、uat、master分支管理模式，会导致代码合并风险加大，测试版本和发布版本差异过大
+- 各个项目代码风格不统一
 - 特性验证的问题
   - 开发人员的开发、上线过程，可以概括为 coding->testing->coding->testing 循环；随着项目复杂度越来越高，testing的成本越来越大
   - 复杂度到达一定程度后，testing成本会大到影响正常迭代
@@ -59,5 +61,108 @@ tags: [git flow, unit test, gitlab ci]
   - iter分支获取feature分支代码，通过提交merge quest 单完成，且merge quest单完成后，及时通知统一迭代分支下各个开发分支负责人，及时 把自身的开发分支rebase至迭代分支的最新节点。这样操作的目的，是为了保持迭代分支中的增量代码，始终被review过，且产生一个code review记录
 - 下游分支获取上游分支代码，使用rebase操作，比如开发分支 feature/tianyu.yan/202008/xxxx 获取 iter/202008/xxxx 分支代码。由开发人员自行在开发分支上，执行 git rebase iter/202008/xxxx
 
+### code review
 
+- 使用mr单进行code review, 以下是mr单模版
+- mr单会带着CI执行结果，CI运行不成功，则MR单不可合并
+
+- .gitlab/merge_request_templates/BUG_FIX.md
+```
+### 这个 PR 做了
+
+<!-- 列表 -->
+
+1. xxx
+2. xxx
+3. 。。。
+
+### 自测报告
+
+| 模块 | 场景 | 表现 | 结果 |
+| ---- | ---- | ---- | ---- |
+| ?    | ?    | ?    | ok?  |
+
+### 这个 PR 涉及什么模块
+
+<!-- 请填写涉及的模块 -->
+
+### 其它需要 Reviewer 知晓的内容：
+
+<!-- 其它需要补充的内容 -->
+```
+- .gitlab/merge_request_templates/MERGE_REQUEST.md
+```
+### 这个 PR 做了 BUG FIX
+
+### 自测报告
+
+<!-- 请填写禅道中真实的 Bug ID -->
+
+| BUG ID                                           | 表现 | 结果 |
+| ------------------------------------------------ | ---- | :--: |
+| [xxx](http://zen.in.za/zentao/bug-view-xxx.html) | ?    | ok?  |
+
+### 这个 PR 涉及什么模块
+
+<!-- 请填写涉及的模块 -->
+
+```
+
+### git 提交信息规范
+
+- git 提交信息检查会在 pre-commit 阶段进行
+- 例子
+
+```
+git commit -m 'feat: add footer'
+```
+
+```
+[
+  'docs', // Adds or alters documentation. 仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等等
+  'chore', // Other changes that don't modify src or test files. 改变构建流程、或者增加依赖库、工具等
+  'feat', // Adds a new feature. 新增feature
+  'fix', // Solves a bug. 修复bug
+  'merge', // Merge branch ? of ?.
+  'perf', // Improves performance. 优化相关，比如提升性能、体验
+  'refactor', // Rewrites code without feature, performance or bug changes. 代码重构，没有加新功能或者修复bug
+  'revert', // Reverts a previous commit. 回滚到上一个版本
+  'style', // Improves formatting, white-space. 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑
+  'test', // Adds or modifies tests. 测试用例，包括单元测试、集成测试等
+],
+```
+
+## 代码检查
+
+- 代码检查，使用统一eslint规则 eslint-config-zati 
+- 代码检查指令会在 pre-commit阶段、CI阶段运行
+- pre-commit阶段可被绕过，但CI阶段不可绕过
+- CI运行不通过，则此节点代码不可被合并入迭代分支
+
+## 单元测试
+
+{% asset_img unit-test-cost.jpg %}
+
+- 单元测试的确需要一定的成本，以invest h5项目实施情况来看，要达到60%的测试覆盖率，测试代码与生产代码开发成本大致是 1:2
+
+### 单元测试落地
+
+{% asset_img unit-test-running.gif %}
+
+- 针对上述问题对应的测试用例，基本可以分为以下几种：
+  - 纯函数测试：测试工具类纯函数是否符合预期
+  - 展示性测试：用于测试组件内容是否正常展示，展示的各项内容是否完整、正确
+  - 交互性测试：用于测试组件涉及的交互，是否可以正常输出，正常输出，并对输入、输出做校验
+  - 快照测试：快照测试让开发人员明确自身对组件的修改，会有多大的波及度，具体可看[Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
+
+- 其中交互测试是成本最高的测试，可以再细分为下面几种：
+  - 涉及dom操作的交互测试
+  - 涉及bom操作的交互测试
+  - 涉及service api的操作交互测试
+
+- 另外，针对当前团队技术栈，还需要在redux场景下进行测试
+
+- 上述测试用例具体实践方式，可以看 [react+react-router+react-redux项目单元测试实践记录](https://evanhongyousan.github.io/2020/10/11/react-react-router-react-redux-unit-test/)
+
+- 在具体实际中，针对一个组件的测试代码，其交互测试与其他测试测试代码对比，一般会是6:1
 
