@@ -2,7 +2,7 @@
 title: ga、gtm介绍与接入说明
 date: 2020-03-26 16:58:50
 categories: [tech]
-tags: [google analytics, ga, google tag mananger, gtm, 用户增长, google analytics solution]
+tags: [ ga,  gtm, 用户增长, google analytics solution]
 ---
 
 Google Analytics Solution是一个完整的数据解决方案，从数据的收集、管理、分析、可视化、优化、到终极目的转化，一气呵成，其中各个产品相互依赖，构成了强大的企业级数字营销整合工具。

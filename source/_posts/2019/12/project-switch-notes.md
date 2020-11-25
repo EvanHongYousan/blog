@@ -2,7 +2,7 @@
 title: 项目交接注意事项
 date: 2019-12-31 16:59:06
 categories: [tech]
-tags: [项目交接, docker, gitlab cli, github action]
+tags: [项目交接, docker, gitlab CI, github action]
 ---
 
 今天接手老项目，因为环境问题、配置问题浪费了很多时间，于是花了30秒考虑该如何尽量杜绝此类问题：

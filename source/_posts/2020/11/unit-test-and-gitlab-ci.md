@@ -4,7 +4,7 @@ categories:
   - tech
 tags:
   - unit test
-  - continuous integration
+  - CI
   - react
   - jest
   - enzyme

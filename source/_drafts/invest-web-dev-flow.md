@@ -1,7 +1,7 @@
 ---
 title: invest web团队工作流说明 -- 关于 git工作流、代码校验、单元测试、持续集成的结合
 categories: [tech]
-tags: [git flow, unit test, gitlab ci]
+tags: [git flow, unit test, gitlab CI, CI]
 ---
 
 {% asset_img unit-test-running.gif %}
