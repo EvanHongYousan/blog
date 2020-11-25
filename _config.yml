@@ -145,13 +145,13 @@ douban:
   user: 185733944
   builtin: false
   book:
-    title: ''
+    title: 
     quote: ''
   movie:
-    title: ''
+    title: 
     quote: ''
   game:
-    title: ''
+    title: 
     quote: ''
   timeout: 10000
 
@@ -159,7 +159,7 @@ steam:
   enable: true
   steamId: '76561198254399899' #steam 64位Id
   path: steamgames/index.html
-  title: Steam游戏库
+  title: 
   quote: ''
   tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
   length: 1000
