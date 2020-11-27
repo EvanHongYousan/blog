@@ -1,5 +1,6 @@
 ---
-title: invest web团队工作流说明 -- 关于 git工作流、代码校验、单元测试、持续集成的结合
+title: invest web团队工作流说明
+subtitle: 关于 git工作流、代码校验、单元测试、持续集成的结合
 categories:
   - tech
 tags:
@@ -10,7 +11,7 @@ tags:
 date: 2020-11-25 15:42:06
 ---
 
-
+>关于 git工作流、代码校验、单元测试、持续集成的结合
 <!-- {% asset_img unit-test-running.gif %} -->
 {% asset_img invest_git_flow.png %}
 
@@ -204,9 +205,11 @@ Lines        : 69.97% ( 1859/2657 )
 - 可以通过详细报告，查看各文件测试覆盖情况
 {% asset_img test_coverage.gif %}
 
-## 当前 git工作流、代码校验、单元测试、持续集成的结合
+## CI执行结果推送
 
-### 现状
+{% asset_img pipeline-email.png %}
+
+## 当前 git工作流、代码校验、单元测试、持续集成的结合
 
 {% asset_img ivnest_web_work_flow.png %}
 
