@@ -513,4 +513,4 @@ it('should render correctly with redux store', () => {
 - [jest doc](https://jestjs.io/docs/en/getting-started)
 - [enzyme doc](https://github.com/enzymejs/enzyme)
 - [Best Practices for Testing a React/Redux Toolkit App](https://www.xtivia.com/best-practices-for-testing-a-react-redux-toolkit-app/)
-- [est ignore or exclude file/function/statement from test coverage](https://codewithhugo.com/jest-exclude-coverage/)
+- [jest ignore or exclude file/function/statement from test coverage](https://codewithhugo.com/jest-exclude-coverage/)
