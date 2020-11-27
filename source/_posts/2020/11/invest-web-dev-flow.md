@@ -215,6 +215,7 @@ Lines        : 69.97% ( 1859/2657 )
 
 ### 待完成事项
 
+- CI还未进行提交信息校验和分支名校验
 - 接入统一code lint规则 eslint-config-zati
 - CI根据最新gitlab特性进行调整
 - 对接CD
