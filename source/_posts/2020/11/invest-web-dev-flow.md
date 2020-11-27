@@ -56,8 +56,8 @@ date: 2020-11-25 15:42:06
 
 - 迭代开始前，迭代开发负责人/项目开发负责人 从master拉出迭代分支（比如 iter/jack/202008/add_logs）
 - 本次迭代中，各需求开发负责人从迭代分支上拉出自己的开发分支
-- 迭代分支定期把最新的master分支rebase进来（项目发版后执行rebase操作）
-- 具体开发负责人定期把最新的iter分支rebase进来 
+- 迭代分支根据实际情况把最新的master分支rebase进来（项目发版后执行rebase操作）
+- 具体开发负责人根据实际情况把最新的iter分支rebase进来 
 - 各需求开发完成后，分支通过merge request合并入迭代分支，然后使用迭代分支进行提测，其中merge request单作为提测单中的code review物料；开发分支合并入迭代分支后，需要被删除，开发人员在迭代分支中拉出新开发分支。GIT 合并多个commit 命令行操作
 - 上线阶段，迭代分支先rebase master分支，确保迭代分支合并入master分支时没有冲突。然后提交iter分支合并入master分支的mr
 
