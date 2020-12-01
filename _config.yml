@@ -139,7 +139,7 @@ lazyload:
   enable: false
   onlypost: false
 # 文章内容图片cdn配置，配合hexo-tag-asset-img插件
-# asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
+asset_img_url: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io
 
 douban:
   user: 185733944
