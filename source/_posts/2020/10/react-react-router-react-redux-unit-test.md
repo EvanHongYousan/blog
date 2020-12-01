@@ -15,7 +15,7 @@ date: 2020-10-11 14:24:03
 
 给项目添加测试，并不单纯只是工具使用上的变化和代码量的增加，更为本质的变化，是代码设计上的变化、开发工作模式的变化
 
-ps: 在开始使用typescript的类型约束后，也会有上述变化产生
+ps: 在开始使用 typescript 的类型约束后，也会有上述变化产生
 
 <escape><!-- more --></escape>
 
@@ -29,11 +29,11 @@ ps: 在开始使用typescript的类型约束后，也会有上述变化产生
 
 ### 执行单元测试主要面对的问题
 
-- 在实现web前端应用前，至少会考虑几个要点
-  - 应用运行环境：pc浏览器？移动端浏览器？app内webview？
+- 在实现 web 前端应用前，至少会考虑几个要点
+  - 应用运行环境：pc 浏览器？移动端浏览器？app 内 webview？
   - 应用展示内容：banner？文案？按钮？图片？等等
   - 应用交互：点击按钮发生什么？输入文字发生什么？等等
-- 故对于web前端应用，其项目代码中，除了纯函数部分，还充斥着大量的io操作（service api调用、bom api调用、dom api）调用
+- 故对于 web 前端应用，其项目代码中，除了纯函数部分，还充斥着大量的 io 操作（service api 调用、bom api 调用、dom api）调用
 - 下面就针对上述问题，依次处理
 
 ## 实践
@@ -48,26 +48,26 @@ ps: 在开始使用typescript的类型约束后，也会有上述变化产生
 - utils/index.tsx
 
 ```javascript
-function sum(a:number, b:number){
-  return a+b
+function sum(a: number, b: number) {
+  return a + b
 }
-export {sum}
+export { sum }
 ```
 
 - utils/index.test.tsx
 
 ```javascript
-import {sum} from './index'
+import { sum } from './index'
 
 it('test sum', () => {
-    expect(sum(1,2)).toEqual(3)
-    expect(sum(2,3)).toEqual(5)
+  expect(sum(1, 2)).toEqual(3)
+  expect(sum(2, 3)).toEqual(5)
 })
 ```
 
 ### 页面展示内容测试
 
-- 在react语境下，页面使用组件进行内容展示
+- 在 react 语境下，页面使用组件进行内容展示
 - 则开发人员需要以组件未单位进行测试
 
 #### 实例
@@ -101,7 +101,7 @@ it('should render correctly', () => {
 
 - 界面作为人机交互入口，直接承载用户输入与机器输出
 - 交互实际上就是用户输入和机器输出的体现
-- 下面是一个不涉及io操作的交互测试
+- 下面是一个不涉及 io 操作的交互测试
 
 #### 实例
 
@@ -127,7 +127,6 @@ function Banner(): JSX.Element {
 }
 
 export default Banner
-
 ```
 
 - src/components/Banner/index.test.tsx
@@ -146,9 +145,9 @@ it('click the button and change text', () => {
 })
 ```
 
-### dom操作交互测试
+### dom 操作交互测试
 
-- 涉及dom操作、bom操作、api操作的部分，可以使用`mock`
+- 涉及 dom 操作、bom 操作、api 操作的部分，可以使用`mock`
 
 #### 实例
 
@@ -182,7 +181,6 @@ function Banner(): JSX.Element {
 }
 
 export default Banner
-
 ```
 
 - src/components/Banner/index.test.tsx
@@ -196,8 +194,8 @@ beforeAll(() => {
   Object.defineProperty(window, 'location', {
     writable: true,
     value: {
-      href: 'mock success'
-    }
+      href: 'mock success',
+    },
   })
 })
 
@@ -209,9 +207,9 @@ it('test jump', () => {
 })
 ```
 
-### bom操作交互测试
+### bom 操作交互测试
 
-- bom操作和dom类似
+- bom 操作和 dom 类似
 
 #### 实例
 
@@ -253,7 +251,6 @@ function Banner(): JSX.Element {
 }
 
 export default Banner
-
 ```
 
 - src/components/Banner/index.test.tsx
@@ -267,8 +264,8 @@ beforeAll(() => {
   Object.defineProperty(window, 'navigator', {
     writable: true,
     value: {
-      userAgent: 'get userAgent success'
-    }
+      userAgent: 'get userAgent success',
+    },
   })
 })
 
@@ -277,12 +274,11 @@ it('click "get useragen"', () => {
   wrapper.find('#getUserAgent').simulate('click')
   expect(wrapper.text()).toContain('get userAgent success')
 })
-
 ```
 
 ### service api 操作交互测试
 
-- api 相关的mock会有一点差异
+- api 相关的 mock 会有一点差异
 
 #### 实例
 
@@ -334,7 +330,6 @@ function Banner(): JSX.Element {
 }
 
 export default Banner
-
 ```
 
 - src/components/Banner/index.test.tsx
@@ -362,11 +357,11 @@ it('click "get userInfo"', async () => {
 
 ```
 
-## redux场景下组件测试
+## redux 场景下组件测试
 
-- 对于使用redux进行状态管理的应用，必定会有组件使用react-redux提供的hooks去获取状态、更新状态
-- 根据上面的实践，明显可以看出：进行这类组件的单元测试，必须对react-redux的hooks进行mock
-- 对此，已经有完整的mock工具可供使用：redux-mock-store
+- 对于使用 redux 进行状态管理的应用，必定会有组件使用 react-redux 提供的 hooks 去获取状态、更新状态
+- 根据上面的实践，明显可以看出：进行这类组件的单元测试，必须对 react-redux 的 hooks 进行 mock
+- 对此，已经有完整的 mock 工具可供使用：redux-mock-store
 
 ### 实例
 
@@ -407,6 +402,7 @@ export const selectUserInfo = (state: any): UserInfoType => state.userInfo.userI
 export default slice.reducer
 
 ```
+
 > 关于 storeSlice 这种写法，可以看 [@reduxjs/toolkit](https://redux-toolkit.js.org/)
 
 - src/components/Banner/index.tsx
@@ -463,7 +459,6 @@ function Banner(): JSX.Element {
 }
 
 export default Banner
-
 ```
 
 - src/components/Banner/index.test.tsx
@@ -481,9 +476,9 @@ it('should render correctly with redux store', () => {
     userInfo: {
       userInfo: {
         cnName: '马马马马马马',
-        enName: 'horsehorsehorsehorse'
-      }
-    }
+        enName: 'horsehorsehorsehorse',
+      },
+    },
   })
   const wrapper = mount(
     <Provider store={store}>
