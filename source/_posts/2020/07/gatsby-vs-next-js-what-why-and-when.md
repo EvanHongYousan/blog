@@ -1,5 +1,5 @@
 ---
-title: "【译】Gatsby vs Next.JS - What, Why and When?"
+title: "【翻译】Gatsby vs Next.JS - What, Why and When?"
 categories:
   - tech
 tags:
