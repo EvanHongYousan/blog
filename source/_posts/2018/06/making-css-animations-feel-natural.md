@@ -6,8 +6,9 @@ author: evanyan
 categories: [tech]
 tags: [css, html, 翻译]
 ---
+
 {% asset_img cover.png %}
-在过去，设计师负责设计，程序员负责编码。他们间互不干涉。但随着CSS中transitions和animations的到来，设计和编码的界限模糊了。设计师描述设计，而程序员把设计师的描述翻译成具体代码--这种合作模式不再像过去那么简单。为了高效地协作，设计师必须懂点代码，而程序员必须懂点设计。
+在过去，设计师负责设计，程序员负责编码。他们间互不干涉。但随着 CSS 中 transitions 和 animations 的到来，设计和编码的界限模糊了。设计师描述设计，而程序员把设计师的描述翻译成具体代码--这种合作模式不再像过去那么简单。为了高效地协作，设计师必须懂点代码，而程序员必须懂点设计。
 <escape><!-- more --></escape>
 
 举个例子，假设一位设计师要求开发人员实现一个如下所示的盒子反弹动画，在没有跨界知识和通用标准表述的情况下，设计师和程序员的沟通会有少许信息丢失。程序员没有足够的信息去了解设计师的意图，设计师也不知道他们到底可以选择什么。这样的沟通会有信息缺失，你最后完成的效果可能是下面这样的：
@@ -17,9 +18,9 @@ tags: [css, html, 翻译]
 
 这样的效果并不会令人兴奋。虽然这已经符合动画效果的基本标准，但我们绝对可以做得更好。
 
-首先要看的是animation-timing-function属性。在上面的例子中，我们对此属性赋值linear，这意味着盒子以相同的速度不断运动。在某些情况下，这是可取的；然而，在现实世界中，运动通常不是线性的。
+首先要看的是 animation-timing-function 属性。在上面的例子中，我们对此属性赋值 linear，这意味着盒子以相同的速度不断运动。在某些情况下，这是可取的；然而，在现实世界中，运动通常不是线性的。
 
-一个简单的解决方法是改变animation-timing-function属性。这使得每个动画的开始部分和结束部分比中间部分稍慢，这会令一些动画更自然。以下是启用了缓动功能的方块：
+一个简单的解决方法是改变 animation-timing-function 属性。这使得每个动画的开始部分和结束部分比中间部分稍慢，这会令一些动画更自然。以下是启用了缓动功能的方块：
 
 <iframe height='450' scrolling='no' title='Bouncing Box 2' src='//codepen.io/pulpexploder/embed/bgJmde/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/bgJmde/'>Bouncing Box 2</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -54,7 +55,7 @@ tags: [css, html, 翻译]
 
 最终的微妙变形使得反弹看起来更加自然。总体而言，第一个例子中我们的基本线性反弹有了巨大的改善。
 
-这正是我们正在寻找的东西，但我们仍可以用定制的三次Bézier曲线进一步调整移动速率：
+这正是我们正在寻找的东西，但我们仍可以用定制的三次 Bézier 曲线进一步调整移动速率：
 
 <iframe height='450' scrolling='no' title='Bouncing Box 7' src='//codepen.io/pulpexploder/embed/ypYXwb/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/ypYXwb/'>Bouncing Box 7</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -63,8 +64,7 @@ tags: [css, html, 翻译]
 
 对于动画原则，奥利约翰斯顿和弗兰克托马斯的《The Illusion of Life: Disney Animation》是一本伟大的入门书籍。学会关于动画原则的通用语言后，设计人员和开发人员之间的沟通和协作将变得更加容易。
 
-对于CSS动画的控制和变化，其可能性几乎是无止境的，因为延迟和计时很容易调整。如前所述，如果您不喜欢现成的易用的定时功能，则可以使用cubic-bezier()来创建自己的定时功能。您还可以对动画做出调整，使其更接近于漫画或更接近于现实。重要的是，设计师和开发人员都要考虑这些变化，而不是盲目地沟通且不考虑用户体验。互相共享知识和互相协作可以将简单的动画变成很棒的动画。
-
+对于 CSS 动画的控制和变化，其可能性几乎是无止境的，因为延迟和计时很容易调整。如前所述，如果您不喜欢现成的易用的定时功能，则可以使用 cubic-bezier()来创建自己的定时功能。您还可以对动画做出调整，使其更接近于漫画或更接近于现实。重要的是，设计师和开发人员都要考虑这些变化，而不是盲目地沟通且不考虑用户体验。互相共享知识和互相协作可以将简单的动画变成很棒的动画。
 
 原文：[https://css-tricks.com/making-css-animations-feel-natural/](https://css-tricks.com/making-css-animations-feel-natural/)
 

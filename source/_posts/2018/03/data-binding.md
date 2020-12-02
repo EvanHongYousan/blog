@@ -5,28 +5,29 @@ categories: [tech]
 tags: [设计模式]
 ---
 
-## 封装属性访问器 
+## 封装属性访问器
 
 ```javascript
-//Object.defineProperty(obj, prop, descriptor)  
-//obj ，待修改的对象  
-//prop ，带修改的属性名称  
-//descriptor ，待修改属性的相关描述  
+//Object.defineProperty(obj, prop, descriptor)
+//obj ，待修改的对象
+//prop ，带修改的属性名称
+//descriptor ，待修改属性的相关描述
 var obj = {};
-Object.defineProperty(obj,'a',{  
-    set:function(newVal){  
-        document.getElementById('a').value = newVal;  
-        document.getElementById('b').innerHTML = newVal;  
-    }  
-});  
-    
-document.addEventListener('keyup',function(e){  
-    obj.a = e.target.value;  
+Object.defineProperty(obj, "a", {
+  set: function (newVal) {
+    document.getElementById("a").value = newVal;
+    document.getElementById("b").innerHTML = newVal;
+  },
+});
+
+document.addEventListener("keyup", function (e) {
+  obj.a = e.target.value;
 });
 ```
+
 <escape><!-- more --></escape>
 
->对象里目前存在的属性描述符有两种主要形式：数据描述符和存取描述符。数据描述符是一个具有值的属性，该值可能是可写的，也可能不是可写的。存取描述符是由getter-setter函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。
+> 对象里目前存在的属性描述符有两种主要形式：数据描述符和存取描述符。数据描述符是一个具有值的属性，该值可能是可写的，也可能不是可写的。存取描述符是由 getter-setter 函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。
 
 ### 数据描述符和存取描述符均具有以下可选键值：
 
@@ -36,7 +37,7 @@ document.addEventListener('keyup',function(e){
 
 - enumerable
 
-当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中。默认为 false。
+当且仅当该属性的 enumerable 为 true 时，该属性才能够出现在对象的枚举属性中。默认为 false。
 
 ### 数据描述符同时具有以下可选键值：
 
@@ -46,7 +47,7 @@ document.addEventListener('keyup',function(e){
 
 - writable
 
-当且仅当该属性的writable为true时，value才能被赋值运算符改变。默认为 false。
+当且仅当该属性的 writable 为 true 时，value 才能被赋值运算符改变。默认为 false。
 
 ### 存取描述符同时具有以下可选键值：
 
@@ -58,11 +59,11 @@ document.addEventListener('keyup',function(e){
 
 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined。
 
->如果一个描述符不具有value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。
+> 如果一个描述符不具有 value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value 或 writable)和(get 或 set)关键字，将会产生一个异常。
 
 ## angular 1.x 的数据绑定原理
 
-在未引入angluar1.x的情况下，要实现angular1.x的数据绑定设计，大概会是下面这样：
+在未引入 angluar1.x 的情况下，要实现 angular1.x 的数据绑定设计，大概会是下面这样：
 
 ```javascript
 <!DOCTYPE html>
@@ -124,17 +125,17 @@ document.addEventListener('keyup',function(e){
 </html>
 ```
 
-## ECMA2015的新特性Proxy
+## ECMA2015 的新特性 Proxy
 
 ```javascript
 let validator = {
-  set: function(obj, prop, value) {
-    if (prop === 'age') {
+  set: function (obj, prop, value) {
+    if (prop === "age") {
       if (!Number.isInteger(value)) {
-        throw new TypeError('The age is not an integer');
+        throw new TypeError("The age is not an integer");
       }
       if (value > 200) {
-        throw new RangeError('The age seems invalid');
+        throw new RangeError("The age seems invalid");
       }
     }
 
@@ -143,25 +144,27 @@ let validator = {
 
     // Indicate success
     return true;
-  }
+  },
 };
 
 let person = new Proxy({}, validator);
 
 person.age = 100;
 console.log(person.age); // 100
-person.age = 'young'; // Throws an exception
+person.age = "young"; // Throws an exception
 person.age = 300; // Throws an exception
 ```
 
 ## 几个被废弃的方案
 
 ### 1
-Object.observe(obj, callback[, acceptList]) 方法对对象（或者其属性）进行监控观察，一旦其发生变化时，将会执行相应的handler。
 
-现在 Object.observe 将不加入es7 [An update on Object.observe](https://mail.mozilla.org/pipermail/es-discuss/2015-November/044684.html)
+Object.observe(obj, callback[, acceptList]) 方法对对象（或者其属性）进行监控观察，一旦其发生变化时，将会执行相应的 handler。
+
+现在 Object.observe 将不加入 es7 [An update on Object.observe](https://mail.mozilla.org/pipermail/es-discuss/2015-November/044684.html)
 
 ### 2
-Object.prototype.watch(prop, handler) 方法对对象属性进行监控观察，一旦其发生变化时，将会执行相应的handler。
 
-此方法只在Firefox 58之前的Firefox中实现，其余浏览器及浏览器版本均不实现此方法 [Object.prototype.watch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/watch)
+Object.prototype.watch(prop, handler) 方法对对象属性进行监控观察，一旦其发生变化时，将会执行相应的 handler。
+
+此方法只在 Firefox 58 之前的 Firefox 中实现，其余浏览器及浏览器版本均不实现此方法 [Object.prototype.watch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/watch)

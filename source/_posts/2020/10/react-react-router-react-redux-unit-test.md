@@ -49,20 +49,20 @@ ps: 在开始使用 typescript 的类型约束后，也会有上述变化产生
 
 ```javascript
 function sum(a: number, b: number) {
-  return a + b
+  return a + b;
 }
-export { sum }
+export { sum };
 ```
 
 - utils/index.test.tsx
 
 ```javascript
-import { sum } from './index'
+import { sum } from "./index";
 
-it('test sum', () => {
-  expect(sum(1, 2)).toEqual(3)
-  expect(sum(2, 3)).toEqual(5)
-})
+it("test sum", () => {
+  expect(sum(1, 2)).toEqual(3);
+  expect(sum(2, 3)).toEqual(5);
+});
 ```
 
 ### 页面展示内容测试
@@ -75,26 +75,26 @@ it('test sum', () => {
 - src/components/Banner/index.tsx
 
 ```javascript
-import React from 'react'
+import React from "react";
 
 function Banner(): JSX.Element {
-  return <div>Banner</div>
+  return <div>Banner</div>;
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
 
 ```javascript
-import React from 'react'
-import Banner from './index'
-import { shallow } from 'enzyme'
+import React from "react";
+import Banner from "./index";
+import { shallow } from "enzyme";
 
-it('should render correctly', () => {
-  const wrapper = shallow(<Banner />)
-  expect(wrapper.text()).toContain('banner')
-})
+it("should render correctly", () => {
+  const wrapper = shallow(<Banner />);
+  expect(wrapper.text()).toContain("banner");
+});
 ```
 
 ### 交互测试
@@ -108,14 +108,14 @@ it('should render correctly', () => {
 - src/components/Banner/index.tsx
 
 ```javascript
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Banner(): JSX.Element {
-  const [text, setText] = useState('banner')
+  const [text, setText] = useState("banner");
 
   const clickHandle = (): void => {
-    setText('clicked')
-  }
+    setText("clicked");
+  };
   return (
     <div>
       {text}
@@ -123,26 +123,26 @@ function Banner(): JSX.Element {
         click
       </button>
     </div>
-  )
+  );
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
 
 ```javascript
-import React from 'react'
-import Banner from './index'
-import { shallow } from 'enzyme'
+import React from "react";
+import Banner from "./index";
+import { shallow } from "enzyme";
 
-it('click the button and change text', () => {
-  const wrapper = shallow(<Banner />)
-  expect(wrapper.text()).toContain('banner')
-  wrapper.find('#btn').simulate('click')
-  expect(wrapper.text()).not.toContain('banner')
-  expect(wrapper.text()).toContain('clicked')
-})
+it("click the button and change text", () => {
+  const wrapper = shallow(<Banner />);
+  expect(wrapper.text()).toContain("banner");
+  wrapper.find("#btn").simulate("click");
+  expect(wrapper.text()).not.toContain("banner");
+  expect(wrapper.text()).toContain("clicked");
+});
 ```
 
 ### dom 操作交互测试
@@ -154,14 +154,14 @@ it('click the button and change text', () => {
 - src/components/Banner/index.tsx
 
 ```javascript
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Banner(): JSX.Element {
-  const [text, setText] = useState('banner')
+  const [text, setText] = useState("banner");
 
   const clickHandle = (): void => {
-    setText('clicked')
-  }
+    setText("clicked");
+  };
   return (
     <div>
       {text}
@@ -171,40 +171,40 @@ function Banner(): JSX.Element {
       <button
         id="jump"
         onClick={(): void => {
-          location.href = 'jump success'
+          location.href = "jump success";
         }}
       >
         jump
       </button>
     </div>
-  )
+  );
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
 
 ```javascript
-import React from 'react'
-import Banner from './index'
-import { shallow } from 'enzyme'
+import React from "react";
+import Banner from "./index";
+import { shallow } from "enzyme";
 
 beforeAll(() => {
-  Object.defineProperty(window, 'location', {
+  Object.defineProperty(window, "location", {
     writable: true,
     value: {
-      href: 'mock success',
+      href: "mock success",
     },
-  })
-})
+  });
+});
 
-it('test jump', () => {
-  const wrapper = shallow(<Banner />)
-  expect(window.location.href).toBe('mock success')
-  wrapper.find('#jump').simulate('click')
-  expect(window.location.href).toBe('jump success')
-})
+it("test jump", () => {
+  const wrapper = shallow(<Banner />);
+  expect(window.location.href).toBe("mock success");
+  wrapper.find("#jump").simulate("click");
+  expect(window.location.href).toBe("jump success");
+});
 ```
 
 ### bom 操作交互测试
@@ -216,14 +216,14 @@ it('test jump', () => {
 - src/components/Banner/index.tsx
 
 ```javascript
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Banner(): JSX.Element {
-  const [text, setText] = useState('banner')
+  const [text, setText] = useState("banner");
 
   const clickHandle = (): void => {
-    setText('clicked')
-  }
+    setText("clicked");
+  };
   return (
     <div>
       {text}
@@ -233,7 +233,7 @@ function Banner(): JSX.Element {
       <button
         id="jump"
         onClick={(): void => {
-          location.href = 'jump success'
+          location.href = "jump success";
         }}
       >
         jump
@@ -241,39 +241,39 @@ function Banner(): JSX.Element {
       <button
         id="getUserAgent"
         onClick={(): void => {
-          setText(window.navigator.userAgent)
+          setText(window.navigator.userAgent);
         }}
       >
         jump
       </button>
     </div>
-  )
+  );
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
 
 ```javascript
-import React from 'react'
-import Banner from './index'
-import { shallow } from 'enzyme'
+import React from "react";
+import Banner from "./index";
+import { shallow } from "enzyme";
 
 beforeAll(() => {
-  Object.defineProperty(window, 'navigator', {
+  Object.defineProperty(window, "navigator", {
     writable: true,
     value: {
-      userAgent: 'get userAgent success',
+      userAgent: "get userAgent success",
     },
-  })
-})
+  });
+});
 
 it('click "get useragen"', () => {
-  const wrapper = shallow(<Banner />)
-  wrapper.find('#getUserAgent').simulate('click')
-  expect(wrapper.text()).toContain('get userAgent success')
-})
+  const wrapper = shallow(<Banner />);
+  wrapper.find("#getUserAgent").simulate("click");
+  expect(wrapper.text()).toContain("get userAgent success");
+});
 ```
 
 ### service api 操作交互测试
@@ -285,15 +285,15 @@ it('click "get useragen"', () => {
 - src/components/Banner/index.tsx
 
 ```javascript
-import React, { useState } from 'react'
-import { getUserInfo } from '@/pages/card-mgmt/api'
+import React, { useState } from "react";
+import { getUserInfo } from "@/pages/card-mgmt/api";
 
 function Banner(): JSX.Element {
-  const [text, setText] = useState('banner')
+  const [text, setText] = useState("banner");
 
   const clickHandle = (): void => {
-    setText('clicked')
-  }
+    setText("clicked");
+  };
   return (
     <div>
       {text}
@@ -303,7 +303,7 @@ function Banner(): JSX.Element {
       <button
         id="jump"
         onClick={(): void => {
-          location.href = 'jump success'
+          location.href = "jump success";
         }}
       >
         jump
@@ -311,7 +311,7 @@ function Banner(): JSX.Element {
       <button
         id="getUserAgent"
         onClick={(): void => {
-          setText(window.navigator.userAgent)
+          setText(window.navigator.userAgent);
         }}
       >
         getUserAgent
@@ -319,17 +319,17 @@ function Banner(): JSX.Element {
       <button
         id="getUserInfo"
         onClick={async (): Promise<void> => {
-          const result = await getUserInfo()
-          setText(result.cnName)
+          const result = await getUserInfo();
+          setText(result.cnName);
         }}
       >
         getUserInfo
       </button>
     </div>
-  )
+  );
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
@@ -408,19 +408,19 @@ export default slice.reducer
 - src/components/Banner/index.tsx
 
 ```javascript
-import React, { useState } from 'react'
-import { getUserInfo } from '@/pages/card-mgmt/api'
-import { selectUserInfo } from './storeSlice'
-import { useSelector } from 'react-redux'
+import React, { useState } from "react";
+import { getUserInfo } from "@/pages/card-mgmt/api";
+import { selectUserInfo } from "./storeSlice";
+import { useSelector } from "react-redux";
 
 function Banner(): JSX.Element {
-  const [text, setText] = useState('banner')
+  const [text, setText] = useState("banner");
   // 这里使用了 react-redux 的 hook
-  const userInfo = useSelector(selectUserInfo)
+  const userInfo = useSelector(selectUserInfo);
 
   const clickHandle = (): void => {
-    setText('clicked')
-  }
+    setText("clicked");
+  };
   return (
     <div>
       {text}
@@ -432,7 +432,7 @@ function Banner(): JSX.Element {
       <button
         id="jump"
         onClick={(): void => {
-          location.href = 'jump success'
+          location.href = "jump success";
         }}
       >
         jump
@@ -440,7 +440,7 @@ function Banner(): JSX.Element {
       <button
         id="getUserAgent"
         onClick={(): void => {
-          setText(window.navigator.userAgent)
+          setText(window.navigator.userAgent);
         }}
       >
         getUserAgent
@@ -448,46 +448,46 @@ function Banner(): JSX.Element {
       <button
         id="getUserInfo"
         onClick={async (): Promise<void> => {
-          const result = await getUserInfo()
-          setText(result.cnName)
+          const result = await getUserInfo();
+          setText(result.cnName);
         }}
       >
         getUserInfo
       </button>
     </div>
-  )
+  );
 }
 
-export default Banner
+export default Banner;
 ```
 
 - src/components/Banner/index.test.tsx
 
 ```javascript
-import React from 'react'
-import Banner from './index'
-import { mount } from 'enzyme'
-import configureStore from 'redux-mock-store'
-import { Provider } from 'react-redux'
+import React from "react";
+import Banner from "./index";
+import { mount } from "enzyme";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
 
-it('should render correctly with redux store', () => {
-  const mockStore = configureStore([])
+it("should render correctly with redux store", () => {
+  const mockStore = configureStore([]);
   const store = mockStore({
     userInfo: {
       userInfo: {
-        cnName: '马马马马马马',
-        enName: 'horsehorsehorsehorse',
+        cnName: "马马马马马马",
+        enName: "horsehorsehorsehorse",
       },
     },
-  })
+  });
   const wrapper = mount(
     <Provider store={store}>
       <Banner />
     </Provider>
-  )
-  expect(wrapper.text()).toContain('马')
-  expect(wrapper.text()).toContain('horse')
-})
+  );
+  expect(wrapper.text()).toContain("马");
+  expect(wrapper.text()).toContain("horse");
+});
 ```
 
 ## 前端单元测试执行套路

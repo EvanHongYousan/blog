@@ -10,11 +10,13 @@ tags: [npm, NODE_ENV]
 ## 差异
 
 - windows
+
 ```
 set NODE_ENV=production node xxx.js
 ```
 
 - mac
+
 ```
 export NODE_ENV=production node xxx.js
 ```

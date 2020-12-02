@@ -5,35 +5,36 @@ categories: [tech]
 tags: [webpack, roadhog, bug fix]
 ---
 
-跑roadhog开发环境构建时，roadhog抛出
+跑 roadhog 开发环境构建时，roadhog 抛出
 
 ```
 ? Something is already running on port 8000.
 Would you like to run the app on another port instead? (Y/n)
 ```
 
-但我检查后发现8000端口并未被占用
+但我检查后发现 8000 端口并未被占用
 
 <escape><!-- more --></escape>
 
 ## 解决
 
-添加host：
+添加 host：
 
 ```
 127.0.0.1 localhost
 ```
 
-于是roadhog的服务可正常监听8000了
+于是 roadhog 的服务可正常监听 8000 了
 
 ## 原理猜测
 
-我把上面那个host取消，在命令行中ping了一下localhost
+我把上面那个 host 取消，在命令行中 ping 了一下 localhost
 
 ```
 ping localhost
 ping: cannot resolve localhost: Unknown host
 ```
+
 发现解析失败
 
-估计是roadhog内部执行某操作时，直接使用了“localhost”，但localhost在mac上会解析失败，于是导致问题出现
+估计是 roadhog 内部执行某操作时，直接使用了“localhost”，但 localhost 在 mac 上会解析失败，于是导致问题出现

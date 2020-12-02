@@ -11,37 +11,37 @@ tags: [设计模式]
 ## 一个常见的场景
 
 ```javascript
-if(type1){
-    if(type2 === 1){
-        //do something
-    }
-    if(type2 === 2){
-        //do something
-    }
-    if(type2 === 3){
-        //do something
-    }
+if (type1) {
+  if (type2 === 1) {
+    //do something
+  }
+  if (type2 === 2) {
+    //do something
+  }
+  if (type2 === 3) {
+    //do something
+  }
 } else {
-    if(type2 === 4){
-        //dom something
-    }
+  if (type2 === 4) {
+    //dom something
+  }
 }
 ```
 
 增强一点可读性：
 
 ```javascript
-if(type1 && type2 === 1){
-    //do something
+if (type1 && type2 === 1) {
+  //do something
 }
-if(type1 && type2 === 2){
-    //do something
+if (type1 && type2 === 2) {
+  //do something
 }
-if(type1 && type2 === 3){
-    //do something
+if (type1 && type2 === 3) {
+  //do something
 }
-if(!type1 && type2 === 4){
-    //dom something
+if (!type1 && type2 === 4) {
+  //dom something
 }
 ```
 
@@ -49,57 +49,59 @@ if(!type1 && type2 === 4){
 
 ## 使用职责链模式进行重构
 
-观察上面的原始代码，可以看到总共有4个判断条件。要把这些判断条件都构造成节点，串联成一个职责链，则这些节点，都必须暴露出一个相同的接口。
+观察上面的原始代码，可以看到总共有 4 个判断条件。要把这些判断条件都构造成节点，串联成一个职责链，则这些节点，都必须暴露出一个相同的接口。
 
-先构建4个判断函数
+先构建 4 个判断函数
 
 ```javascript
-function condition1(type1, type2){
-    if(type1 && type2 === 1){
+function condition1(type1, type2) {
+  if (type1 && type2 === 1) {
     //do something
-    } else {
-        return 'next';
-    }
+  } else {
+    return "next";
+  }
 }
-function condition2(type1, type2){
-    if(type1 && type2 === 2){
+function condition2(type1, type2) {
+  if (type1 && type2 === 2) {
     //do something
-    } else {
-        return 'next';
-    }
+  } else {
+    return "next";
+  }
 }
-function condition3(type1, type2){
-    if(type1 && type2 === 3){
+function condition3(type1, type2) {
+  if (type1 && type2 === 3) {
     //do something
-    } else {
-        return 'next';
-    }
+  } else {
+    return "next";
+  }
 }
-function condition4(type1, type2){
-    if(!type1 && type2 === 4){
+function condition4(type1, type2) {
+  if (!type1 && type2 === 4) {
     //do something
-    } else {
-        return 'next';
-    }
+  } else {
+    return "next";
+  }
 }
 ```
 
 建立节点类，用于实例化节点
 
 ```javascript
-function Chain(fn){
-    this.fn = fn;
-    this.nextCall = null;
+function Chain(fn) {
+  this.fn = fn;
+  this.nextCall = null;
 }
-Chain.prototype.setNextCall = function(fn){
-    this.nextCall = fn;
+Chain.prototype.setNextCall = function (fn) {
+  this.nextCall = fn;
 };
-Chain.prototype.request = function(){
-    var ret = this.fn.apply(this, arguments);
+Chain.prototype.request = function () {
+  var ret = this.fn.apply(this, arguments);
 
-    if(ret === 'next'){
-        return this.nextCall && this.nextCall.request.apply(this.nextCall, arguments);
-    }
+  if (ret === "next") {
+    return (
+      this.nextCall && this.nextCall.request.apply(this.nextCall, arguments)
+    );
+  }
 };
 ```
 
@@ -121,23 +123,25 @@ chain1.request(false, 4);
 ## 异步职责链
 
 当判断函数需要通过异步请求结果才能知道是否调用下一个判断函数时，节点对象自身需要有一个主动调用下一个节点的方法
+
 ```javascript
-Chain.prototype.next = function(){
-    return this.nextCall && this.nextCall.request.apply(this.nextCall, arguments);
+Chain.prototype.next = function () {
+  return this.nextCall && this.nextCall.request.apply(this.nextCall, arguments);
 };
 ```
 
 example:
+
 ```javascript
-function condition5(type1, type2){
-    var self = this;
-    fetch('/abc.com?type1=' + type1 + '&type2=' + type2).then(function(resp){
-        if(resp.code === 0){
-            //do something
-        } else {
-            self.next();
-        }
-    })
+function condition5(type1, type2) {
+  var self = this;
+  fetch("/abc.com?type1=" + type1 + "&type2=" + type2).then(function (resp) {
+    if (resp.code === 0) {
+      //do something
+    } else {
+      self.next();
+    }
+  });
 }
 var chain5 = new Chain(condition5);
 chain5.setNextCall(chain1);

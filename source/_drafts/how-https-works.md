@@ -4,7 +4,7 @@ categories:
 tags: [翻译, https]
 ---
 
-HTTPS 是简单的标准 HTTP 协议，上面加了一层 SSL/TLS 加密技术。除非出现可怕的错误（也有可能），否则它可以防止像臭名昭著的 [infamous Eve](https://en.wikipedia.org/wiki/Alice_and_Bob#Cast_of_characters) 这样的人查看或修改你的的请求；它可以保证你的密码、通信和信用卡信息在你的电脑和你想发送这些数据的服务器之间的安全。虽然绿色的小挂锁和地址栏中的字母 "https"并不意味着你和你正在浏览的网站没有足够的绳子将自己吊在其他地方，但它们至少可以帮助你安全地进行通信。
+HTTPS 就是标准 HTTP 协议 + SSL/TLS 加密技术。除非出现严重问题（完全有可能），否则它可以防止类似臭名昭著的 [Eve](https://en.wikipedia.org/wiki/Alice_and_Bob#Cast_of_characters) 这样的人查看或修改你的的请求；它可以保证你的密码、通信和信用卡信息在你的电脑和你想发送这些数据的服务器之间的安全。虽然绿色的小挂锁和地址栏中的字母 "https"并不意味着你和你正在浏览的网站没有足够的绳子将自己吊在其他地方，但它们至少可以帮助你安全地进行通信。
 
 <escape><!-- more --></escape>
 

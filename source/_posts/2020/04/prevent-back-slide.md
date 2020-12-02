@@ -16,28 +16,43 @@ tags: [javascript]
 ```javascript
 var xPos = null;
 var yPos = null;
-window.addEventListener( "touchmove", function ( event ) {
-    var touch = event.originalEvent.touches[ 0 ];
-    oldX = xPos;
-    oldY = yPos;
-    xPos = touch.pageX;
-    yPos = touch.pageY;
-    if ( oldX == null && oldY == null ) {
-        return false;
+window.addEventListener("touchmove", function (event) {
+  var touch = event.originalEvent.touches[0];
+  oldX = xPos;
+  oldY = yPos;
+  xPos = touch.pageX;
+  yPos = touch.pageY;
+  if (oldX == null && oldY == null) {
+    return false;
+  } else {
+    if (Math.abs(oldX - xPos) > Math.abs(oldY - yPos)) {
+      event.preventDefault();
+      return false;
     }
-    else {
-        if ( Math.abs( oldX-xPos ) > Math.abs( oldY-yPos ) ) {
-            event.preventDefault();
-            return false;
-        }
-    }
+  }
 });
 ```
 
 压缩版：
 
 ```javascript
-var xPos=null;var yPos=null;window.addEventListener("touchmove",function(event){var touch=event.originalEvent.touches[0];oldX=xPos;oldY=yPos;xPos=touch.pageX;yPos=touch.pageY;if(oldX==null && oldY==null){return false;}else{if(Math.abs(oldX-xPos)>Math.abs(oldY-yPos)){event.preventDefault();return false;}}});
+var xPos = null;
+var yPos = null;
+window.addEventListener("touchmove", function (event) {
+  var touch = event.originalEvent.touches[0];
+  oldX = xPos;
+  oldY = yPos;
+  xPos = touch.pageX;
+  yPos = touch.pageY;
+  if (oldX == null && oldY == null) {
+    return false;
+  } else {
+    if (Math.abs(oldX - xPos) > Math.abs(oldY - yPos)) {
+      event.preventDefault();
+      return false;
+    }
+  }
+});
 ```
 
 ### 禁止浏览器下拉刷新
@@ -53,47 +68,45 @@ body {
 如果样式设置不生效：
 
 ```javascript
-(function() {
-    var touchStartHandler,
-        touchMoveHandler,
-        touchPoint;
+(function () {
+  var touchStartHandler, touchMoveHandler, touchPoint;
 
-    // Only needed for touch events on chrome.
-    if ((window.chrome || navigator.userAgent.match("CriOS"))
-        && "ontouchstart" in document.documentElement) {
+  // Only needed for touch events on chrome.
+  if (
+    (window.chrome || navigator.userAgent.match("CriOS")) &&
+    "ontouchstart" in document.documentElement
+  ) {
+    touchStartHandler = function () {
+      // Only need to handle single-touch cases
+      touchPoint = event.touches.length === 1 ? event.touches[0].clientY : null;
+    };
 
-        touchStartHandler = function() {
-            // Only need to handle single-touch cases
-            touchPoint = event.touches.length === 1 ? event.touches[0].clientY : null;
-        };
+    touchMoveHandler = function (event) {
+      var newTouchPoint;
 
-        touchMoveHandler = function(event) {
-            var newTouchPoint;
+      // Only need to handle single-touch cases
+      if (event.touches.length !== 1) {
+        touchPoint = null;
 
-            // Only need to handle single-touch cases
-            if (event.touches.length !== 1) {
-                touchPoint = null;
+        return;
+      }
 
-                return;
-            }
+      // We only need to defaultPrevent when scrolling up
+      newTouchPoint = event.touches[0].clientY;
+      if (newTouchPoint > touchPoint) {
+        event.preventDefault();
+      }
+      touchPoint = newTouchPoint;
+    };
 
-            // We only need to defaultPrevent when scrolling up
-            newTouchPoint = event.touches[0].clientY;
-            if (newTouchPoint > touchPoint) {
-                event.preventDefault();
-            }
-            touchPoint = newTouchPoint;
-        };
+    document.addEventListener("touchstart", touchStartHandler, {
+      passive: false,
+    });
 
-        document.addEventListener("touchstart", touchStartHandler, {
-            passive: false
-        });
-
-        document.addEventListener("touchmove", touchMoveHandler, {
-            passive: false
-        });
-
-    }
+    document.addEventListener("touchmove", touchMoveHandler, {
+      passive: false,
+    });
+  }
 })();
 ```
 

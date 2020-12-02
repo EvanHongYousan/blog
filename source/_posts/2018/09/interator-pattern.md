@@ -15,14 +15,14 @@ tags: [设计模式]
 ## 迭代器模式的简单实现
 
 ```javascript
-var each = function(ary, callback){
-    for(let i = 0; i < ary.length; i++){
-        callback(ary[i], i);
-    }
+var each = function (ary, callback) {
+  for (let i = 0; i < ary.length; i++) {
+    callback(ary[i], i);
+  }
 };
 
-each([1, 2, 3], function(item, index){
-    dosomething(item, index);
+each([1, 2, 3], function (item, index) {
+  dosomething(item, index);
 });
 ```
 
@@ -32,22 +32,23 @@ each([1, 2, 3], function(item, index){
 
 上面的 each 函数属于内部迭代器，each 函数的内部已经定义好了迭代规则，它完全接手整个迭代过程，外部只需要一次初始调用。
 
-内部迭代器在调用的时候非常方便，外界不用关心迭代器内部的实现，跟迭代器的交互也仅仅是一次初始调用，但这也刚好是内部迭代器的缺点。由于内部迭代器的迭代规则已经被提前规定，上面的 each 函数就无法同时迭代2个数组了。
+内部迭代器在调用的时候非常方便，外界不用关心迭代器内部的实现，跟迭代器的交互也仅仅是一次初始调用，但这也刚好是内部迭代器的缺点。由于内部迭代器的迭代规则已经被提前规定，上面的 each 函数就无法同时迭代 2 个数组了。
 
 比如现在有个需求，要判断 2 个数组里元素的值是否完全相等， 如果不改写 each 函数本身 的代码，我们能够入手的地方似乎只剩下 each 的回调函数了，代码如下:
 
 ```javascript
-var compare = function( ary1, ary2 ){
-    if ( ary1.length !== ary2.length ){
-        throw new Error ( 'ary1 和 ary2 不相等' ); }
-        each( ary1, function( i, n ){
-            if ( n !== ary2[ i ] ){
-                throw new Error ( 'ary1 和 ary2 不相等' );
-            }
-        });
-        alert ( 'ary1 和 ary2 相等' );
+var compare = function (ary1, ary2) {
+  if (ary1.length !== ary2.length) {
+    throw new Error("ary1 和 ary2 不相等");
+  }
+  each(ary1, function (i, n) {
+    if (n !== ary2[i]) {
+      throw new Error("ary1 和 ary2 不相等");
+    }
+  });
+  alert("ary1 和 ary2 相等");
 };
-compare( [ 1, 2, 3 ], [ 1, 2, 4 ] ); // throw new Error ( 'ary1和ary2不相等' );
+compare([1, 2, 3], [1, 2, 4]); // throw new Error ( 'ary1和ary2不相等' );
 ```
 
 ### 外部迭代器
@@ -56,31 +57,31 @@ compare( [ 1, 2, 3 ], [ 1, 2, 4 ] ); // throw new Error ( 'ary1和ary2不相等'
 
 ```javascript
 var Iterator = function (obj) {
-    var current = 0;
-    var getCurrItem = function () {
-        return obj[current];
-    };
-    return {
-        next: next,
-        isDone: isDone,
-        getCurrItem: getCurrItem
-    }
+  var current = 0;
+  var getCurrItem = function () {
+    return obj[current];
+  };
+  return {
+    next: next,
+    isDone: isDone,
+    getCurrItem: getCurrItem,
+  };
 };
 ```
 
-下面是compare函数的改写：
+下面是 compare 函数的改写：
 
 ```javascript
 var compare = function (iterator1, iterator2) {
-    while (!iterator1.isDone() && !iterator2.isDone()) {
-        if (iterator1.getCurrItem() !== iterator2.getCurrItem()) {
-            throw new Error('iterator1 和 iterator2 不相等');
-        }
-        iterator1.next();
-        iterator2.next();
+  while (!iterator1.isDone() && !iterator2.isDone()) {
+    if (iterator1.getCurrItem() !== iterator2.getCurrItem()) {
+      throw new Error("iterator1 和 iterator2 不相等");
     }
-    alert('iterator1 和 iterator2 相等');
-}
+    iterator1.next();
+    iterator2.next();
+  }
+  alert("iterator1 和 iterator2 相等");
+};
 var iterator1 = Iterator([1, 2, 3]);
 var iterator2 = Iterator([1, 2, 3]);
 compare(iterator1, iterator2); // 输出:iterator1 和 iterator2 相等
@@ -92,12 +93,12 @@ compare(iterator1, iterator2); // 输出:iterator1 和 iterator2 相等
 
 ```javascript
 var reverseEach = function (ary, callback) {
-    for (var l = ary.length - 1; l >= 0; l--) {
-        callback(l, ary[l]);
-    }
+  for (var l = ary.length - 1; l >= 0; l--) {
+    callback(l, ary[l]);
+  }
 };
 reverseEach([0, 1, 2], function (i, n) {
-    console.log(n); // 分别输出:2, 1 ,0
+  console.log(n); // 分别输出:2, 1 ,0
 });
 ```
 
@@ -107,18 +108,19 @@ reverseEach([0, 1, 2], function (i, n) {
 
 ```javascript
 var each = function (ary, callback) {
-    for (var i = 0, l = ary.length; i < l; i++) {
-        if (callback(i, ary[i]) === false) {// callback 的执行结果返回 false，提前终止迭代
-            break;
-        }
+  for (var i = 0, l = ary.length; i < l; i++) {
+    if (callback(i, ary[i]) === false) {
+      // callback 的执行结果返回 false，提前终止迭代
+      break;
     }
+  }
 };
 each([1, 2, 3, 4, 5], function (i, n) {
-    if (n > 3) {
-        return false;
-    }
-    console.log(n);
-    // n大于3的时候终止循环 // 分别输出:1, 2, 3
+  if (n > 3) {
+    return false;
+  }
+  console.log(n);
+  // n大于3的时候终止循环 // 分别输出:1, 2, 3
 });
 ```
 
@@ -128,24 +130,25 @@ each([1, 2, 3, 4, 5], function (i, n) {
 
 ```javascript
 var getActiveUploadObj = function () {
-    try {
-        return new ActiveXObject("TXFTNActiveX.FTNUpload");
-    } catch (e) {
-        return false;
-    }
+  try {
+    return new ActiveXObject("TXFTNActiveX.FTNUpload");
+  } catch (e) {
+    return false;
+  }
 };
 var getFlashUploadObj = function () {
-    if (supportFlash()) { // supportFlash 函数未提供
-        // IE 上传控件
-    }
-    var str = '<object type="application/x-shockwave-flash"></object>';
-    return $(str).appendTo($('body'));
-    return false;
+  if (supportFlash()) {
+    // supportFlash 函数未提供
+    // IE 上传控件
+  }
+  var str = '<object type="application/x-shockwave-flash"></object>';
+  return $(str).appendTo($("body"));
+  return false;
 };
 
 var getFormUpladObj = function () {
-    var str = '<input name="file" type="file" class="ui-file"/>'; // 表单上传
-    return $(str).appendTo($('body'));
+  var str = '<input name="file" type="file" class="ui-file"/>'; // 表单上传
+  return $(str).appendTo($("body"));
 };
 ```
 
@@ -153,12 +156,16 @@ var getFormUpladObj = function () {
 
 ```javascript
 var iteratorUploadObj = function () {
-    for (var i = 0, fn; fn = arguments[i++];) {
-        var uploadObj = fn();
-        if (uploadObj !== false) {
-            return uploadObj;
-        }
+  for (var i = 0, fn; (fn = arguments[i++]); ) {
+    var uploadObj = fn();
+    if (uploadObj !== false) {
+      return uploadObj;
     }
+  }
 };
-var uploadObj = iteratorUploadObj(getActiveUploadObj, getFlashUploadObj, getFormUpladObj);
+var uploadObj = iteratorUploadObj(
+  getActiveUploadObj,
+  getFlashUploadObj,
+  getFormUpladObj
+);
 ```

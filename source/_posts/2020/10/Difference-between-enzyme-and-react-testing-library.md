@@ -32,10 +32,10 @@ React Testing Library -- 一个非常通用的名字，它作为一个测试库�
 在 Enzyme 中，你需要配置适配器，使其与 React 16 一起工作。还有其他的第三方适配器可以使 Enzyme 与这些库一起工作。
 
 ```javascript
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 ```
 
 在 @testing-library/react 中，不需要太多的设置。你必须安装 @testing-library/react npm 模块，然后就可以了。

@@ -88,13 +88,13 @@ tags: [css, html]
 
 ## 动画解析
 
-先看html结构：
+先看 html 结构：
 
 ```javascript
 <div id="horizontal" class="">
-    <div id="vertical" class="">
-        <div class="ball"></div>
-    </div>
+  <div id="vertical" class="">
+    <div class="ball"></div>
+  </div>
 </div>
 ```
 
@@ -138,7 +138,7 @@ tags: [css, html]
 }
 ```
 
-显然，包裹div.ball的两个元素，div#horizontal负责x轴平移，div#vertical负责y轴平移，x轴、y轴两种平移混合，就实现各种斜移。
+显然，包裹 div.ball 的两个元素，div#horizontal 负责 x 轴平移，div#vertical 负责 y 轴平移，x 轴、y 轴两种平移混合，就实现各种斜移。
 
 接下来是动画属性设置：
 
@@ -168,29 +168,35 @@ tags: [css, html]
 }
 ```
 
-对于碰撞运动而言，在y轴上，始终有重力的影响。
+对于碰撞运动而言，在 y 轴上，始终有重力的影响。
 
-所以，y轴动画 animation-timing-function属性被设置为ease-in，从开始到结束逐渐加速(从高处到低处逐渐加速)；然后，animation-direction设置为alternate，则动画正向播完后，会反向播出，则反向播出时，结束到开始回事逐渐减速(从低处到高处逐渐减速)；最后，animation-iteration-count设置为infinite，动画会无限循环。
+所以，y 轴动画 animation-timing-function 属性被设置为 ease-in，从开始到结束逐渐加速(从高处到低处逐渐加速)；然后，animation-direction 设置为 alternate，则动画正向播完后，会反向播出，则反向播出时，结束到开始回事逐渐减速(从低处到高处逐渐减速)；最后，animation-iteration-count 设置为 infinite，动画会无限循环。
 
-至于x轴，其不受其他力的影响，所以在x轴方向上，速度不变，所以 animation-timing-function属性被设置为linear，从开始到结束速度不变。其余属性，与y轴一样。
+至于 x 轴，其不受其他力的影响，所以在 x 轴方向上，速度不变，所以 animation-timing-function 属性被设置为 linear，从开始到结束速度不变。其余属性，与 y 轴一样。
 
-另外，x轴和y轴的具体移动距离，这个由javascript计算得出:
+另外，x 轴和 y 轴的具体移动距离，这个由 javascript 计算得出:
 
 ```javascript
 $ph = $("body").height();
 $pw = $("body").width();
 $ballR = $(".ball").width();
 
-$("<style></style>").text(
-    "@-webkit-keyframes horizontal {0% {transform: translate(0, 0);}100% {transform: translate(" + ($pw -
-        $ballR) + "px, 0);}}" +
-    "@keyframes horizontal {0% { transform: translate(0, 0);}100% {transform: translate(" + ($pw - $ballR) +
-    "px, 0);}}" +
-    "@-webkit-keyframes vertical {0% {transform: translate(0, 0);}100% {transform: translate(0, " + ($ph -
-        $ballR) + "px);}}" +
-    "@keyframes vertical {0% { transform: translate(0, 0);}100% {transform: translate(0, " + ($ph - $ballR) +
-    "px);}}"
-).appendTo($("head"));
+$("<style></style>")
+  .text(
+    "@-webkit-keyframes horizontal {0% {transform: translate(0, 0);}100% {transform: translate(" +
+      ($pw - $ballR) +
+      "px, 0);}}" +
+      "@keyframes horizontal {0% { transform: translate(0, 0);}100% {transform: translate(" +
+      ($pw - $ballR) +
+      "px, 0);}}" +
+      "@-webkit-keyframes vertical {0% {transform: translate(0, 0);}100% {transform: translate(0, " +
+      ($ph - $ballR) +
+      "px);}}" +
+      "@keyframes vertical {0% { transform: translate(0, 0);}100% {transform: translate(0, " +
+      ($ph - $ballR) +
+      "px);}}"
+  )
+  .appendTo($("head"));
 ```
 
 至此，低成本碰撞动画简述完毕。

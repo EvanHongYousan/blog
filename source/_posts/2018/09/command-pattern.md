@@ -15,6 +15,7 @@ tags: [设计模式]
 ## 一个命令模式的简单例子
 
 首先是几个按钮的绘制：
+
 ```javascript
 <body>
 <button id="button1">点击按钮 1</button>
@@ -23,19 +24,19 @@ tags: [设计模式]
 </body>
 
 <script>
-var button1 = document.getElementById( 'button1' ), 
-var button2 = document.getElementById( 'button2' ), 
+var button1 = document.getElementById( 'button1' ),
+var button2 = document.getElementById( 'button2' ),
 var button3 = document.getElementById( 'button3' );
 </script>
 ```
 
-然后定义一个setCommand函数，setCommand函数负责往按钮上面安装命令：
+然后定义一个 setCommand 函数，setCommand 函数负责往按钮上面安装命令：
 
 ```javascript
-var setCommand = function(button, command){
-    button.onclick = function(){
-        command.execute();
-    };
+var setCommand = function (button, command) {
+  button.onclick = function () {
+    command.execute();
+  };
 };
 ```
 
@@ -43,97 +44,97 @@ var setCommand = function(button, command){
 
 ```javascript
 var MenuBar = {
-    refresh: function () {
-        console.log('refresh menu');
-    }
+  refresh: function () {
+    console.log("refresh menu");
+  },
 };
 var SubMenu = {
-    add: function () {
-        console.log('add menu');
-    },
-    del: function () {
-        console.log('del menu');
-    }
+  add: function () {
+    console.log("add menu");
+  },
+  del: function () {
+    console.log("del menu");
+  },
 };
 ```
 
 定义几个命令对象：
 
 ```javascript
-function RefreshCommand(receiver){
-    this.receiver = receiver;
+function RefreshCommand(receiver) {
+  this.receiver = receiver;
 }
-RefreshCommand.prototype.execute = function(){
-    this.receiver.refresh();
+RefreshCommand.prototype.execute = function () {
+  this.receiver.refresh();
 };
 
-function AddCommand(receiver){
-    this.receiver = receiver;
+function AddCommand(receiver) {
+  this.receiver = receiver;
 }
-RefreshCommand.prototype.execute = function(){
-    this.receiver.add();
+RefreshCommand.prototype.execute = function () {
+  this.receiver.add();
 };
 
-function DelCommand(receiver){
-    this.receiver = receiver;
+function DelCommand(receiver) {
+  this.receiver = receiver;
 }
-RefreshCommand.prototype.execute = function(){
-    this.receiver.del();
+RefreshCommand.prototype.execute = function () {
+  this.receiver.del();
 };
 ```
 
 最后，通过命令对象，把命令接收者（功能对象）和命令请求者（按钮）联系起来：
 
 ```javascript
-var refreshMenuBarCommand = new RefreshMenuBarCommand( MenuBar ); 
-var addSubMenuCommand = new AddSubMenuCommand( SubMenu );
-var delSubMenuCommand = new DelSubMenuCommand( SubMenu );
-setCommand( button1, refreshMenuBarCommand ); 
-setCommand( button2, addSubMenuCommand ); 
-setCommand( button3, delSubMenuCommand );
+var refreshMenuBarCommand = new RefreshMenuBarCommand(MenuBar);
+var addSubMenuCommand = new AddSubMenuCommand(SubMenu);
+var delSubMenuCommand = new DelSubMenuCommand(SubMenu);
+setCommand(button1, refreshMenuBarCommand);
+setCommand(button2, addSubMenuCommand);
+setCommand(button3, delSubMenuCommand);
 ```
 
-## javascript中的命令模式
+## javascript 中的命令模式
 
 ```javascript
 var bindClick = function (button, func) {
-    button.onclick = func;
+  button.onclick = func;
 };
 
 var MenuBar = {
-    refresh: function () {
-        console.log('refresh menu');
-    }
+  refresh: function () {
+    console.log("refresh menu");
+  },
 };
 var SubMenu = {
-    add: function () {
-        console.log('add menu');
-    },
-    del: function () {
-        console.log('del menu');
-    }
+  add: function () {
+    console.log("add menu");
+  },
+  del: function () {
+    console.log("del menu");
+  },
 };
 bindClick(button1, MenuBar.refresh);
 bindClick(button2, SubMenu.add);
 bindClick(button3, SubMenu.del);
 ```
 
-可以看到，上面这段代码中，并没有command和receiver两个概念。
+可以看到，上面这段代码中，并没有 command 和 receiver 两个概念。
 
-原因就是，相对于简单例子中的传统命令模式实现，javascript版命令模式实现利用了高阶函数特性(函数可作为参数被传递，函数可作为返回值被输出)。
+原因就是，相对于简单例子中的传统命令模式实现，javascript 版命令模式实现利用了高阶函数特性(函数可作为参数被传递，函数可作为返回值被输出)。
 
 ## 撤销命令
 
 首先是一种最简单的撤销：针对上一步的操作，再做一次'反向操作'。下面是一些简单例子的罗列：
 
-1. 移动了一个dom元素，则作undo操作时，就把dom元素移回原来的位置（做移动操作时，需要记录下移动前的位置）
-1. 输入了一段文本，则作undo操作时，就把输入的文本删去（做输入操作时，需要记录下当前输入的文本）
+1. 移动了一个 dom 元素，则作 undo 操作时，就把 dom 元素移回原来的位置（做移动操作时，需要记录下移动前的位置）
+1. 输入了一段文本，则作 undo 操作时，就把输入的文本删去（做输入操作时，需要记录下当前输入的文本）
 
 下面是一个例子：
 
 ```html
 <body>
-    <div id="ball" style="position:absolute;background:#000;width:50px;height:50px"></div> 
+    <div id="ball" style="position:absolute;background:#000;width:50px;height:50px"></div>
     输入小球移动后的位置:<input id="pos"/>
     <button id="moveBtn">开始移动</button>
     <button id="cancelBtn">cancel</cancel> <!--增加取消按钮-->
@@ -141,53 +142,56 @@ bindClick(button3, SubMenu.del);
 ```
 
 ```javascript
-var ball = document.getElementById('ball');
-var pos = document.getElementById('pos');
-var moveBtn = document.getElementById('moveBtn');
+var ball = document.getElementById("ball");
+var pos = document.getElementById("pos");
+var moveBtn = document.getElementById("moveBtn");
 var MoveCommand = function (receiver, pos) {
-this.receiver = receiver;
-    this.pos = pos;
+  this.receiver = receiver;
+  this.pos = pos;
 };
 MoveCommand.prototype.execute = function () {
-    this.receiver.start('left', this.pos, 1000, 'strongEaseOut');
+  this.receiver.start("left", this.pos, 1000, "strongEaseOut");
 };
 var moveCommand;
 moveBtn.onclick = function () {
-    var animate = new Animate(ball);
-    moveCommand = new MoveCommand(animate, pos.value); 
-    moveCommand.execute();
+  var animate = new Animate(ball);
+  moveCommand = new MoveCommand(animate, pos.value);
+  moveCommand.execute();
 };
 ```
 
-添加一个undo按钮：
+添加一个 undo 按钮：
 
 ```html
 <button id="cancelBtn">cancel</cancel> <!--增加取消按钮-->
 ```
 
-添加undo操作：
+添加 undo 操作：
 
 ```javascript
-MoveCommand.prototype.undo = function(){
-    this.receiver.start( 'left', this.oldPos, 1000, 'strongEaseOut' ); // 回到小球移动前记录的位置
+MoveCommand.prototype.undo = function () {
+  this.receiver.start("left", this.oldPos, 1000, "strongEaseOut"); // 回到小球移动前记录的位置
 };
 ```
 
-移动操作(execute方法)也需要改写：
+移动操作(execute 方法)也需要改写：
 
 ```javascript
 MoveCommand.prototype.execute = function () {
-    this.receiver.start('left', this.pos, 1000, 'strongEaseOut');
-    this.oldPos = this.receiver.dom.getBoundingClientRect()[this.receiver.propertyName]; 11 // 记录小球开始移动前的位置
+  this.receiver.start("left", this.pos, 1000, "strongEaseOut");
+  this.oldPos = this.receiver.dom.getBoundingClientRect()[
+    this.receiver.propertyName
+  ];
+  11; // 记录小球开始移动前的位置
 };
 ```
 
-关联undo按钮和undo操作：
+关联 undo 按钮和 undo 操作：
 
 ```javascript
-var cancelBtn = document.getElementById( 'cancelBtn' );
-cancelBtn.onclick = function(){ 
-    moveCommand.undo();
+var cancelBtn = document.getElementById("cancelBtn");
+cancelBtn.onclick = function () {
+  moveCommand.undo();
 };
 ```
 
@@ -199,69 +203,69 @@ cancelBtn.onclick = function(){
 
 ```html
 <html>
-
-<body>
+  <body>
     <button id="replay">播放录像</button>
     <button id="undo">撤销上一步</button>
-</body>
-<script>
+  </body>
+  <script>
     var Ryu = {
-        attack: function () {
-            console.log('攻击');
-        },
-        defense: function () {
-            console.log('防御');
-        },
-        jump: function () {
-            console.log('跳跃');
-        },
-        crouch: function () {
-            console.log('蹲下');
-        }
+      attack: function () {
+        console.log("攻击");
+      },
+      defense: function () {
+        console.log("防御");
+      },
+      jump: function () {
+        console.log("跳跃");
+      },
+      crouch: function () {
+        console.log("蹲下");
+      },
     };
 
-    var makeCommand = function (receiver, state) {  // 创建命令
-        if (!state) {
-            return false;
-        }
-        return function () {
-            receiver[state]();
-        }
+    var makeCommand = function (receiver, state) {
+      // 创建命令
+      if (!state) {
+        return false;
+      }
+      return function () {
+        receiver[state]();
+      };
     };
 
     var commands = {
-        "119": "jump",//w
-        "115": "crouch",//s
-        "97": "defense",//a
-        "100": "attack"//d
+      119: "jump", //w
+      115: "crouch", //s
+      97: "defense", //a
+      100: "attack", //d
     };
 
-    var commandStack = [];  // 保存命令的堆栈
+    var commandStack = []; // 保存命令的堆栈
 
     document.onkeypress = function (ev) {
-        var keyCode = ev.keyCode;
-        var command = makeCommand(Ryu, commands[keyCode]);
-        if (command) {
-            command();
-            commandStack.push(command);
-        }
-    }
-
-    document.getElementById('replay').onclick = function () { // 点击播放录像
-        var command;
-        while (command = commandStack.shift()) {
-            command();
-        }
+      var keyCode = ev.keyCode;
+      var command = makeCommand(Ryu, commands[keyCode]);
+      if (command) {
+        command();
+        commandStack.push(command);
+      }
     };
 
-    document.getElementById('undo').onclick = function () {
-        var command;
-        commandStack.pop();//删掉最后一步
-        while (command = commandStack.shift()) {
-            command();
-        }
+    document.getElementById("replay").onclick = function () {
+      // 点击播放录像
+      var command;
+      while ((command = commandStack.shift())) {
+        command();
+      }
     };
-</script>
 
+    document.getElementById("undo").onclick = function () {
+      var command;
+      commandStack.pop(); //删掉最后一步
+      while ((command = commandStack.shift())) {
+        command();
+      }
+    };
+  </script>
 </html>
 ```

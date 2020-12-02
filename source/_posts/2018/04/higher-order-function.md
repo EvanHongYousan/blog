@@ -9,7 +9,7 @@ tags: [设计模式]
 
 - 函数可以作为参数被传递
 - 函数可以作为返回值输出
-<escape><!-- more --></escape>
+  <escape><!-- more --></escape>
 
 ## 高階函数特性使用场景
 
@@ -17,25 +17,25 @@ tags: [设计模式]
 
 ```javascript
 function callBack(str) {
-    console.log(str);
+  console.log(str);
 }
 
 function test(str, callback) {
-    callback(str);
+  callback(str);
 }
 
-test('test', callBack);
+test("test", callBack);
 ```
 
 ### 作为返回值输出: 构建闭包
 
 ```javascript
 var logPick = (function () {
-    var pick = 1;
-    return function () {
-        console.log(pick);
-        pick++;
-    };
+  var pick = 1;
+  return function () {
+    console.log(pick);
+    pick++;
+  };
 })();
 ```
 
@@ -51,18 +51,18 @@ var logPick = (function () {
 
 ```javascript
 Function.prototype.after = function (afterfn) {
-    var _self = this;
-    return function(){
-        var ret = _self.apply(this, arguments);;
-        afterfn.apply(this, arguments);
-        return ret;
-    };
+  var _self = this;
+  return function () {
+    var ret = _self.apply(this, arguments);
+    afterfn.apply(this, arguments);
+    return ret;
+  };
 };
 var func = function (param) {
-    console.log(param);
-}
+  console.log(param);
+};
 func = func.after(function (param) {
-    console.log('report: ' + JSON.stringify(param));
+  console.log("report: " + JSON.stringify(param));
 });
 ```
 
@@ -70,17 +70,17 @@ func = func.after(function (param) {
 
 ```javascript
 Function.prototype.before = function (beforefn) {
-    var _self = this;
-    return function () {
-        beforefn.apply(this, arguments);
-        return _self.apply(this, arguments);
-    };
+  var _self = this;
+  return function () {
+    beforefn.apply(this, arguments);
+    return _self.apply(this, arguments);
+  };
 };
 var func = function (param) {
-    console.log(param);
-}
+  console.log(param);
+};
 func = func.before(function (param) {
-    param.kk = 'kk';
-    console.log('decorator params');
+  param.kk = "kk";
+  console.log("decorator params");
 });
 ```

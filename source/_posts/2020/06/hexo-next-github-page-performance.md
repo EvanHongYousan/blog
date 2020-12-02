@@ -13,7 +13,7 @@ tags: [性能, cdn, 部署, hexo]
 
 站点使用 hexo next 主题，配置文件中已经带了使用 jsDelivr cdn 的资源配置实例，用户启用便可
 
-根目录下`themes\next\_config.yml`文件中，vendors项下，所有资源皆可配置使用 `jsDelivr cdn`
+根目录下`themes\next\_config.yml`文件中，vendors 项下，所有资源皆可配置使用 `jsDelivr cdn`
 
 ```javascript
 vendors:
@@ -54,7 +54,7 @@ images: https://cdn.jsdelivr.net/gh/evanhongyousan/evanhongyousan.github.io/imag
 ```javascript
 # 图片懒加载
 lazyload:
-  enable: true 
+  enable: true
   onlypost: false
 ```
 
@@ -67,7 +67,7 @@ lazyload:
 根目录下`_config.yml`
 
 ```javascript
-post_asset_folder: true
+post_asset_folder: true;
 ```
 
 并在文章中使用 `{% asset_img 1.png %}`这种方式引用图片，则打包出来的图片，会是这种形式：
@@ -76,7 +76,7 @@ post_asset_folder: true
 https://evanhongyousan.github.io/2020/05/23/landing-page-builder-introduct/image2020-5-14_17-40-17.png
 ```
 
-可以看到图片并不在 `images` 文件夹中，则文章图片并未使用cdn加速
+可以看到图片并不在 `images` 文件夹中，则文章图片并未使用 cdn 加速
 
 ### 处理
 
@@ -119,7 +119,7 @@ font:
   host: //fonts.loli.net
 ```
 
-## 使用的cdn、插件、镜像
+## 使用的 cdn、插件、镜像
 
 - [jsDelivr](https://www.jsdelivr.com/)
 - [hexo-lazyload-image](https://www.npmjs.com/package/hexo-lazyload-image)
