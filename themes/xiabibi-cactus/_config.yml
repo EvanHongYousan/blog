@@ -13,24 +13,21 @@ projects_url: https://github.com/Mrcxt
 # languages/*.yml
 nav:
     home: /
-    archives: /archives
-    #   categories: /categories
-    #   search: /search/
-    Music: /music
-    about: /about
-#   tags: /tags
-#   projects: projects_url
+    articles: /archives/
+    tag: /tags/
+    books: /books/
+    movies: /movies/
+    games: /games/
+    steam: /steamgames/
 
 # Links to your social media accounts.
 # The keys should correspond to Fontawesome icon names
 # (see https://fontawesome.com/icons?d=gallery&s=brands);
 # only 'mail' is an exception.
 social_links:
-    github: https://github.com/Mrcxt
-    #   twitter: /
-    #   facebook: /
-    #   linkedin: /
-    mail: mailto:mrcxt@foxmail.com
+    github: https://github.com/EvanHongYousan
+    mail: mailto:1370204201@qq.com
+    steam: https://steamcommunity.com/profiles/76561198254399899/
 
 # Customize the overview with the most recent blog posts on the index page.
 # Options:
@@ -38,7 +35,7 @@ social_links:
 #   - post_count: whether to show only the x most recent posts.
 posts_overview:
     show_all_posts: false
-    post_count: 5
+    post_count: 10
 
 ##############################################################################
 # Look and Feel
@@ -52,7 +49,7 @@ posts_overview:
 #   - url: where the logo can be found
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
-    enabled: true
+    enabled: false
     width: 50
     height: 50
     url: /images/logo.png
@@ -115,8 +112,8 @@ disqus:
 
 # Fill in your Google Analytics tracking ID to enable Google Analytics.
 google_analytics:
-    enabled: false
-    id: UA-86660611-1
+    enabled: true
+    id: UA-158065783-1
 
 # Fill in your Baidu Analytics tracking ID to enable Baidu Analytics.
 baidu_analytics:
