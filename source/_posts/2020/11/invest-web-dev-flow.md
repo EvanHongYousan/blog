@@ -1,6 +1,6 @@
 ---
-title: invest web团队工作流说明
-subtitle: 关于 git工作流、代码校验、单元测试、持续集成的结合
+title: invest web团队工作流 -- 关于 git flow、代码校验、单元测试、持续集成的结合
+subtitle:
 categories:
   - tech
 tags:
@@ -10,8 +10,6 @@ tags:
   - CI
 date: 2020-11-25 15:42:06
 ---
-
-> 关于 git 工作流、代码校验、单元测试、持续集成的结合.
 
 <!-- {% asset_img unit-test-running.gif %} -->
 
