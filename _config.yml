@@ -5,18 +5,7 @@
 # Site
 title: Evan's Blog -- An FE developer's Blog
 subtitle:
-description:
-  - javascript
-  - es6
-  - html
-  - css
-  - ga
-  - gtm
-  - react
-  - unit test
-  - gitlab
-  - github
-  - CI
+description: With some fe dev skills blog writed by Evan
 keywords:
   - javascript
   - es6
