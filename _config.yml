@@ -5,7 +5,21 @@
 # Site
 title: Evan's blog
 subtitle:
-description: EvanHongyousan
+description:
+  [
+    EvanHongyousan,
+    javascript,
+    es6,
+    html,
+    css,
+    ga,
+    gtm,
+    react,
+    unit test,
+    gitlab,
+    github,
+    CI,
+  ]
 keywords:
 author: evanhongyousan
 language: zh-CN
