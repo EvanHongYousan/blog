@@ -18,6 +18,17 @@ description:
   - github
   - CI
 keywords:
+  - javascript
+  - es6
+  - html
+  - css
+  - ga
+  - gtm
+  - react
+  - unit test
+  - gitlab
+  - github
+  - CI
 author: evanhongyousan
 language: zh-CN
 timezone:
