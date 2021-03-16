@@ -11,4 +11,4 @@ date: 2021-03-16 17:55:45
 
 <escape><!-- more --></escape>
 
-{% asset_img img.png %}
+{% asset_img img2.png %}
