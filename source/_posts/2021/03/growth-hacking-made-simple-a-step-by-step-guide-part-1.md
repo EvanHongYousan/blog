@@ -1,8 +1,13 @@
 ---
-title: 【翻译】 Growth Hacking Made Simple - A Step-by-Step Guide
-categories: [tech]
-tags: [growth, 翻译]
+title: 【翻译】 Growth Hacking Made Simple - A Step-by-Step Guide - Part 1
+categories:
+  - tech
+tags:
+  - growth
+  - 翻译
+date: 2021-03-17 17:22:37
 ---
+
 
 黑客增长法已经是创业公司的新热门词语。忘掉"中枢(pivoting)"和 "迭代"。这些都是增长黑客。
 
@@ -983,7 +988,7 @@ LinkedIn通过在零到100的范围内显示你的个人资料有多 "完整"，
 
 事实上，在留存阶段，你往往可以从中获得更多的价值，让人们一次又一次地回来。
 
-## 步骤5：留存
+<!-- ## 步骤5：留存
 
 两节前，我们对流失率进行了深入的探讨。
 
@@ -997,7 +1002,7 @@ LinkedIn通过在零到100的范围内显示你的个人资料有多 "完整"，
 
 基本上你在哪里看到的都是同样的故事。
 
-回头客更有可能购买。
+回头客更有可能购买。 -->
 
 ---
 
