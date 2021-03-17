@@ -7,8 +7,6 @@ tags:
 date: 2021-03-16 17:55:45
 ---
 
-阅读《深入浅出node.js》的要点记录
+{% asset_img img2.png %}
 
 <escape><!-- more --></escape>
-
-{% asset_img img2.png %}
