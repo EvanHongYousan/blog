@@ -1,5 +1,5 @@
 ---
-title: 【翻译】 Growth Hacking Made Simple - A Step-by-Step Guide - Part 1
+title: 【翻译】 Growth Hacking Made Simple - A Step-by-Step Guide -- Part 1
 categories:
   - tech
 tags:
