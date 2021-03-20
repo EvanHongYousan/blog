@@ -1,6 +1,11 @@
 name: Blog CI
 
-on: [push] # 当有新push时运行
+# on: [push] # 当有新push时运行
+
+on:
+  push:
+    tags:
+      - '*'
 
 env:
   TZ: Asia/Shanghai
@@ -39,7 +44,7 @@ jobs:
         run: |
           # publish
           hexo steam -u && hexo generate && hexo douban && hexo deploy # 执行部署程序
-          
+
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
         env:
