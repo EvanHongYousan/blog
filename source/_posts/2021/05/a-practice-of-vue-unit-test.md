@@ -5,7 +5,6 @@ categories:
 tags:
 ---
 
-
 虽然现在vue已经来到最新的vue3，但仍然有许多vue2项目在不断迭代维护中。因为时代背景的原因（其实也就几年前），当时起这些vue2项目时，单元测试并不被重视。随着业务压力的增大，对版本质量的要求变高，单元测试终于被提上日程，且单元测试开始成为普遍共识。
 
 这次就给一个已经运行几年的vue2项目加上单元测试。当中遇到了一些问题，但其实也是写单元测试会遇到的常见问题，在此做个实践记录
@@ -57,25 +56,26 @@ npm install --save-dev babel-jest vue-jest babel-core@7.0.0-bridge.0
 npm install --save-dev jest-serializer-vue
 ```
 
-另外，项目为typescript项目，还需要安装typescript项目转码依赖
+另外，项目为typescript项目，还需要安装typescript转码依赖
 
 ```javascript
 npm install --save-dev jest-preset-typescript ts-jest @vue/cli-plugin-unit-jest @babel/preset-typescript
 ```
 
-当然，也可以直接使用官方文档脚手架，以便快速体验
+至此，依赖安装完成
 
-```bash
-git clone https://github.com/vuejs/vue-test-utils-getting-started
-cd vue-test-utils-getting-started
-npm install
-```
+>如果需要快速体验的话，也可以直接使用官方文档里的脚手架
+  ```bash
+  git clone https://github.com/vuejs/vue-test-utils-getting-started
+  cd vue-test-utils-getting-started
+  npm install
+  ```
 
 ### 配置
 
 jest的配置可以直接在package.json中写，或者新建文件 `jest.config.js`
 
-jest.config.js:
+- jest.config.js:
 
 ```javascript
 module.exports = {
@@ -159,7 +159,7 @@ it("test sum", () => {
 ### 页面展示内容测试
 
 - 在 vue2 语境下，页面使用组件进行内容展示
-- 则开发人员需要以组件未单位进行测试
+- 则开发人员需要以组件为单位进行测试
 
 #### 实例
 
@@ -477,7 +477,7 @@ describe('info.vue', () => {
 
 ### 全量测试
 
-```
+```bash
 npx jest
 ```
 
@@ -487,7 +487,7 @@ npx jest
 
 ### 全量测试并输出测试覆盖报告
 
-```
+```bash
 npx jest --coverage
 ```
 
@@ -501,10 +501,26 @@ npx jest --coverage
 
 针对变更文件进行测试，且每次文件变更并保存后触发测试
 
-```
+```bash
 npx jest --watch
 ```
 
+## 成本说明
+
+当前信用卡业务前端部分被统计的代码行数为2771行，单元测试覆盖行数为1259行，单元测试行覆盖率为45.43%
+以下是详细的测试覆盖推进细节：
+
+- 行覆盖率 0% → 37%，时间为 2021.05.06 ~ 2021.05.14，除去其他工作占用时间，投入至单元测试的大概是5个工作日。
+  - 其中两个工作日为单元测试框架对接和组件最简单的测试对接，完成后单元测试覆盖大概有20%。20% ~ 37%的覆盖则是代码中的逻辑覆盖，耗时3个工作日
+- 行覆盖率 37% → 45%，时间为 2021.05.17 ~ 2021.05.21，除去其他工作占用时间，投入至单元测试的大概是1.5个工作日
+
+综上:
+- 0 ~ 20%时，效率为 10%（277.1行）/工作日
+- 20% ~ 37% 时，效率为 5.6%（155.2行）/工作日
+- 37% ~ 45% 时，效率为5.3%（146.9行）/工作日
+
+> 以上特指项目中的js、ts源码，不包含css、html等其他代码
+> jest中的Istanbul进行代码行数统计时，使用一套内部规则进行计算，并不受源码的回车换行符影响。故编辑器中显示代码文件的行数，和jest产出的测试覆盖报告的的代码行数并不是一个概念
 ## 参考
 
 - [vue2](https://cn.vuejs.org/v2/guide/)
