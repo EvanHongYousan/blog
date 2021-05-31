@@ -1,8 +1,8 @@
 ---
 title: vue2项目单元测试对接实践记录
 date: 2021-05-30 16:25:35
-categories:
-tags:
+categories: [tech]
+tags: [vue, jest, unit test, vue test utils]
 ---
 
 虽然现在vue已经来到最新的vue3，但仍然有许多vue2项目在不断迭代维护中。因为时代背景的原因（其实也就几年前），当时起这些vue2项目时，单元测试并不被重视。随着业务压力的增大，对版本质量的要求变高，单元测试终于被提上日程，且单元测试开始成为普遍共识。
@@ -521,6 +521,7 @@ npx jest --watch
 
 > 以上特指项目中的js、ts源码，不包含css、html等其他代码
 > jest中的Istanbul进行代码行数统计时，使用一套内部规则进行计算，并不受源码的回车换行符影响。故编辑器中显示代码文件的行数，和jest产出的测试覆盖报告的的代码行数并不是一个概念
+
 ## 参考
 
 - [vue2](https://cn.vuejs.org/v2/guide/)
