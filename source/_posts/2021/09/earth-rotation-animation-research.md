@@ -1,8 +1,14 @@
 ---
 title: 地球转动动画效果预研
-categories: [tech]
-tags: [animation, 动画, thress3d.js]
+categories:
+  - tech
+tags:
+  - animation
+  - 动画
+  - thress3d.js
+date: 2021-09-24 15:55:55
 ---
+
 
 接下来需要做一个visa的活动，产品、设计希望在活动页中实现一个地球自转的动画
 
