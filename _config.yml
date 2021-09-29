@@ -157,13 +157,13 @@ douban:
   builtin: false
   book:
     title: "Books"
-    quote: ""
+    quote: "明天再看"
   movie:
     title: "Movies"
-    quote: ""
+    quote: "看完这集就学习去"
   game:
     title: "Games"
-    quote: ""
+    quote: "再打半小时就学习去"
   timeout: 10000
 
 steam:
@@ -171,10 +171,10 @@ steam:
   steamId: "76561198254399899" #steam 64位Id
   path: steamgames/index.html
   title: "Steam库存"
-  quote: ""
+  quote: "赢一盘就睡！"
   tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
   length: 1000
-  imgUrl: #'https://steamcommunity.com/profiles/76561198254399899/'
+  imgUrl: 'https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/ec/eca67b9aa8f001bf7fd7fc99c32f92d45fabd0b3_full.jpg'
   proxy:
     host:
     port:
@@ -206,8 +206,8 @@ cinema: # 追剧设置
   enable: true
   path:
   vmid: 2899700
-  title: '追番列表'
-  quote: '生命不息，追番不止！'
+  title: '放映厅列表'
+  quote: '生命不息，追剧不止！'
   show: 1
   loading:
   metaColor:
