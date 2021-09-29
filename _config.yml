@@ -174,7 +174,7 @@ steam:
   quote: "赢一盘就睡！"
   tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
   length: 1000
-  imgUrl: 'https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/ec/eca67b9aa8f001bf7fd7fc99c32f92d45fabd0b3_full.jpg'
+  imgUrl: #'https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/ec/eca67b9aa8f001bf7fd7fc99c32f92d45fabd0b3_full.jpg'
   proxy:
     host:
     port:

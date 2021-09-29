@@ -164,9 +164,9 @@ menu:
   books: /books/ || book # 这是链接到books页面
   movies: /movies/ || film #  这是链接到movies页面
   games: /games/ || gamepad # 这是链接到games页面
-  steam: /steamgames/ || steam # 这是链接到steam页面
-  bangumis: /bangumis/ || television # 这是链接到bangumis页面
-  cinemas: /cinemas/ || youtube-play # 这是链接到cinemas页面
+  steam: /steamgames/ || brands fa-steam # 这是链接到steam页面
+  bangumis: /bangumis/ || brands fa-bilibili # 这是链接到bangumis页面
+  cinemas: /cinemas/ || brands fa-youtube # 这是链接到cinemas页面
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -962,7 +962,8 @@ vendors:
 
   # Internal version: 4.7.0
   # Example:
-  fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
+  fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css
+  # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome:
 
