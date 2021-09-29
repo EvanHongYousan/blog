@@ -187,3 +187,32 @@ robotstxt:
   allow:
     - /
   sitemap: /sitemap.xml
+
+bangumi: # 追番设置
+  enable: true
+  path:
+  vmid: 2899700
+  title: '追番列表'
+  quote: '生命不息，追番不止！'
+  show: 1
+  loading:
+  metaColor:
+  color:
+  webp:
+  progress:
+  extra_options:
+    key: value
+cinema: # 追剧设置
+  enable: true
+  path:
+  vmid: 2899700
+  title: '追番列表'
+  quote: '生命不息，追番不止！'
+  show: 1
+  loading:
+  metaColor:
+  color:
+  webp:
+  progress:
+  extra_options:
+    key: value

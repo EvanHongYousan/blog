@@ -165,6 +165,8 @@ menu:
   movies: /movies/ || film #  这是链接到movies页面
   games: /games/ || gamepad # 这是链接到games页面
   steam: /steamgames/ || steam # 这是链接到steam页面
+  bangumis: /bangumis/ || television # 这是链接到bangumis页面
+  cinemas: /cinemas/ || youtube-play # 这是链接到cinemas页面
 
 # Enable / Disable menu icons / item badges.
 menu_settings:

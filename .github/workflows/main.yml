@@ -43,7 +43,7 @@ jobs:
       - name: Deploy GitHub Page
         run: |
           # publish
-          hexo steam -u && hexo generate && hexo douban && hexo deploy # 执行部署程序
+          hexo bangumi -u && hexo cinema -u && hexo steam -u && hexo generate && hexo douban && hexo deploy # 执行部署程序
 
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
