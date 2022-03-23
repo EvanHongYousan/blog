@@ -962,7 +962,8 @@ vendors:
 
   # Internal version: 4.7.0
   # Example:
-  fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css
+  fontawesome: //cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css
+  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome:
