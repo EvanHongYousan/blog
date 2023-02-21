@@ -1,11 +1,11 @@
 name: Blog CI
 
-# on: [push] # 当有新push时运行
+on: [push] # 当有新push时运行
 
-on:
-  push:
-    tags:
-      - '*'
+# on:
+#   push:
+#     tags:
+#       - '*'
 
 env:
   TZ: Asia/Shanghai
