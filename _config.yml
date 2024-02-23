@@ -169,15 +169,18 @@ douban:
 steam:
   enable: true
   steamId: "76561198254399899" #steam 64位Id
+  apiKey: "95999BA7478F67B35E67637477D02FB6"
+  freeGames: true
   path: steamgames/index.html
   title: "Steam库存"
   quote: "赢一盘就睡！"
-  tab: all # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
+  tab: recent # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
   length: 1000
-  imgUrl: #'https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/ec/eca67b9aa8f001bf7fd7fc99c32f92d45fabd0b3_full.jpg'
   proxy:
     host:
     port:
+  extra_options:
+    key: value
 
 robotstxt:
   useragent: "*"
