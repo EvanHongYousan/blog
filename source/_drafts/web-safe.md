@@ -137,26 +137,169 @@ XSS攻击通过在网页中注入恶意脚本来获取用户信息或执行未�
 ## 安全检测与监控
 
 ### 1. 自动化安全扫描
-- 使用OWASP ZAP进行漏洞扫描
-- 定期进行渗透测试
-- 代码安全审计
+- **使用OWASP ZAP进行漏洞扫描**
+  ```bash
+  # 使用Docker运行ZAP扫描
+  docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py \
+    -t https://your-target-website.com \
+    -r scan-report.html
+  ```
+
+- **代码安全审计工具**
+  ```javascript
+  // 使用ESLint的安全规则
+  {
+    "extends": [
+      "plugin:security/recommended"
+    ],
+    "plugins": [
+      "security"
+    ],
+    "rules": {
+      "security/detect-eval-with-expression": "error",
+      "security/detect-non-literal-regexp": "error",
+      "security/detect-unsafe-regex": "error"
+    }
+  }
+  ```
 
 ### 2. 日志监控
-- 记录异常登录行为
-- 监控敏感操作
-- 设置告警阈值
+- **记录异常登录行为**
+  ```javascript
+  // Winston日志配置示例
+  const winston = require('winston');
+  
+  const securityLogger = winston.createLogger({
+    format: winston.format.json(),
+    transports: [
+      new winston.transports.File({ 
+        filename: 'security.log',
+        level: 'warn'
+      })
+    ]
+  });
+  
+  // 记录登录失败
+  function logFailedLogin(username, ip) {
+    securityLogger.warn('Failed login attempt', {
+      username,
+      ip,
+      timestamp: new Date().toISOString(),
+      event: 'LOGIN_FAILED'
+    });
+  }
+  ```
+
+- **监控敏感操作**
+  ```javascript
+  // Express中间件示例
+  const sensitiveOps = new Set(['/admin', '/api/users', '/api/delete']);
+  
+  app.use((req, res, next) => {
+    if (sensitiveOps.has(req.path)) {
+      securityLogger.info('Sensitive operation', {
+        path: req.path,
+        method: req.method,
+        user: req.user?.id,
+        ip: req.ip
+      });
+    }
+    next();
+  });
+  ```
+
+- **告警系统集成**
+  ```javascript
+  // 钉钉告警示例
+  async function sendSecurityAlert(message) {
+    const webhook = 'https://oapi.dingtalk.com/robot/send?access_token=xxx';
+    await axios.post(webhook, {
+      msgtype: 'text',
+      text: {
+        content: `🚨安全告警：${message}`
+      }
+    });
+  }
+  
+  // 设置告警阈值
+  const LOGIN_FAIL_THRESHOLD = 5;
+  const timeWindow = new Map(); // IP -> 失败次数
+  
+  function checkLoginAttempts(ip) {
+    const fails = timeWindow.get(ip) || 0;
+    if (fails >= LOGIN_FAIL_THRESHOLD) {
+      sendSecurityAlert(`IP ${ip} 在5分钟内登录失败超过${LOGIN_FAIL_THRESHOLD}次`);
+    }
+  }
+  ```
 
 ### 3. 应急响应
-1. 制定应急预案
-   - 漏洞分级标准
-   - 响应时间要求
-   - 修复流程规范
+1. **制定应急预案**
+   ```javascript
+   // 安全事件等级定义
+   const SecurityLevel = {
+     LOW: {
+       name: '低危',
+       responseTime: '24小时',
+       notifyChannels: ['email']
+     },
+     MEDIUM: {
+       name: '中危',
+       responseTime: '12小时',
+       notifyChannels: ['email', 'phone']
+     },
+     HIGH: {
+       name: '高危',
+       responseTime: '2小时',
+       notifyChannels: ['email', 'phone', 'sms']
+     },
+     CRITICAL: {
+       name: '严重',
+       responseTime: '30分钟',
+       notifyChannels: ['email', 'phone', 'sms', 'callCenter']
+     }
+   };
+   ```
+
+2. **安全事件处理流程**
+   ```javascript
+   // 事件处理状态机
+   const EventStatus = {
+     DETECTED: 'detected',
+     CONFIRMED: 'confirmed',
+     ANALYZING: 'analyzing',
+     FIXING: 'fixing',
+     VERIFIED: 'verified',
+     CLOSED: 'closed'
+   };
    
-2. 安全事件处理流程
-   - 发现与确认
-   - 影响评估
-   - 修复与验证
-   - 事后复盘
+   class SecurityIncident {
+     constructor(level, description) {
+       this.id = uuid();
+       this.level = level;
+       this.description = description;
+       this.status = EventStatus.DETECTED;
+       this.timeline = [{
+         status: EventStatus.DETECTED,
+         timestamp: new Date(),
+         operator: 'system'
+       }];
+     }
+     
+     async escalate() {
+       // 升级处理
+     }
+     
+     async notify() {
+       // 通知相关人员
+     }
+     
+     async archive() {
+       // 归档处理
+       this.generateReport();
+     }
+   }
+   ```
 
 ## 总结
 
