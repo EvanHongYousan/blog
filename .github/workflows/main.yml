@@ -37,7 +37,7 @@ jobs:
           git config --global user.name 'EvanHongYousan' # 换成你自己的邮箱和名字
           git config --global user.email '1370204201@qq.com'
           # install dependencies
-          npm i -g hexo-cli@3 # 安装hexo
+          npm i -g hexo-cli # 安装hexo
           npm i
 
       - name: Deploy GitHub Page

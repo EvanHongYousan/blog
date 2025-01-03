@@ -1,6 +1,6 @@
 ---
 title: Web安全防护实践指南
-date: 2024-01-03 10:00:00
+date: 2025-01-03 10:00:00
 categories: [tech]
 tags: [安全, web安全, 最佳实践, XSS, CSRF, 注入攻击]
 ---
