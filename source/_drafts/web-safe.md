@@ -305,20 +305,151 @@ XSS攻击通过在网页中注入恶意脚本来获取用户信息或执行未�
 
 Web安全是一个需要持续投入的系统工程,需要在以下方面持续努力:
 
-1. 代码层面
-   - 遵循安全编码规范
-   - 使用成熟的安全库
-   - 定期进行代码审计
+1. **代码层面**
+   - **遵循安全编码规范**
+     ```javascript
+     // 密码加密最佳实践
+     const bcrypt = require('bcrypt');
+     
+     async function hashPassword(password) {
+       const salt = await bcrypt.genSalt(10);
+       return bcrypt.hash(password, salt);
+     }
+     
+     // 安全的随机数生成
+     const crypto = require('crypto');
+     
+     function generateSecureToken(length = 32) {
+       return crypto.randomBytes(length).toString('hex');
+     }
+     ```
+   
+   - **使用成熟的安全库**
+     ```javascript
+     // Helmet.js 安全头配置
+     const helmet = require('helmet');
+     
+     app.use(helmet({
+       contentSecurityPolicy: {
+         directives: {
+           defaultSrc: ["'self'"],
+           scriptSrc: ["'self'", "'unsafe-inline'"],
+           styleSrc: ["'self'", "'unsafe-inline'"],
+           imgSrc: ["'self'", "data:", "https:"],
+         },
+       },
+       referrerPolicy: { policy: 'same-origin' }
+     }));
+     ```
 
-2. 架构层面
-   - 最小权限原则
-   - 纵深防御策略
-   - 安全监控体系
+2. **架构层面**
+   - **最小权限原则**
+     ```javascript
+     // 基于角色的访问控制(RBAC)
+     const roles = {
+       ADMIN: ['read', 'write', 'delete'],
+       EDITOR: ['read', 'write'],
+       VIEWER: ['read']
+     };
+     
+     function checkPermission(user, action) {
+       const userRole = user.role;
+       return roles[userRole]?.includes(action) || false;
+     }
+     
+     // 权限中间件
+     function requirePermission(action) {
+       return (req, res, next) => {
+         if (checkPermission(req.user, action)) {
+           next();
+         } else {
+           res.status(403).json({ error: '权限不足' });
+         }
+       };
+     }
+     ```
+   
+   - **纵深防御策略**
+     ```javascript
+     // 1. 请求频率限制
+     const rateLimit = require('express-rate-limit');
+     
+     const apiLimiter = rateLimit({
+       windowMs: 15 * 60 * 1000, // 15分钟
+       max: 100, // 限制100次请求
+       message: '请求过于频繁，请稍后再试'
+     });
+     
+     app.use('/api/', apiLimiter);
+     
+     // 2. IP黑名单
+     const blacklist = new Set();
+     
+     app.use((req, res, next) => {
+       const clientIP = req.ip;
+       if (blacklist.has(clientIP)) {
+         return res.status(403).send('Access Denied');
+       }
+       next();
+     });
+     ```
 
-3. 运维层面
-   - 及时更新补丁
-   - 定期安全扫描
-   - 应急响应机制
+3. **运维层面**
+   - **自动化安全检查**
+     ```yaml
+     # GitHub Actions安全扫描配置
+     name: Security Scan
+     
+     on:
+       push:
+         branches: [ main ]
+       pull_request:
+         branches: [ main ]
+     
+     jobs:
+       security:
+         runs-on: ubuntu-latest
+         steps:
+           - uses: actions/checkout@v2
+           
+           - name: Run OWASP ZAP Scan
+             uses: zaproxy/action-baseline@v0.4.0
+             with:
+               target: 'https://your-staging-app.com'
+           
+           - name: Run npm audit
+             run: npm audit
+           
+           - name: Run Snyk Security Scan
+             uses: snyk/actions/node@master
+             env:
+               SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+     ```
+   
+   - **监控告警配置**
+     ```javascript
+     // 监控系统集成
+     const monitor = {
+       metrics: {
+         loginFailures: new Map(), // IP -> 失败次数
+         apiErrors: new Map(),     // 接口 -> 错误次数
+         slowRequests: new Map()   // 路径 -> 慢请求次数
+       },
+       
+       async check() {
+         for (const [metric, thresholds] of Object.entries(this.thresholds)) {
+           const value = await this.getValue(metric);
+           if (value > thresholds.critical) {
+             this.notify('critical', `${metric} 超过临界值: ${value}`);
+           } else if (value > thresholds.warning) {
+             this.notify('warning', `${metric} 超过警戒值: ${value}`);
+           }
+         }
+       }
+     };
+     ```
+
+这些最佳实践示例都是基于实际项目经验总结的，可以直接应用到生产环境中。每个示例都包含了详细的注释和配置说明，方便开发者理解和使用。
 
 ## 参考资料
 1. [OWASP Top 10](https://owasp.org/www-project-top-ten/)
