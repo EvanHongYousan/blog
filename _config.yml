@@ -166,21 +166,21 @@ douban:
     quote: "再打半小时就学习去"
   timeout: 10000
 
-steam:
-  enable: true
-  steamId: "76561198254399899" #steam 64位Id
-  apiKey: "95999BA7478F67B35E67637477D02FB6"
-  freeGames: true
-  path: steamgames/index.html
-  title: "Steam库存"
-  quote: "赢一盘就睡！"
-  tab: recent # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
-  length: 1000
-  proxy:
-    host:
-    port:
-  extra_options:
-    key: value
+# steam:
+#   enable: false
+#   steamId: "76561198254399899" #steam 64位Id
+#   apiKey: "95999BA7478F67B35E67637477D02FB6"
+#   freeGames: true
+#   path: steamgames/index.html
+#   title: "Steam库存"
+#   quote: "赢一盘就睡！"
+#   tab: recent # all 或 recent , all: 所有游戏, recent: 最近游玩的游戏
+#   length: 1000
+#   proxy:
+#     host:
+#     port:
+#   extra_options:
+#     key: value
 
 robotstxt:
   useragent: "*"
@@ -195,8 +195,8 @@ bangumi: # 追番设置
   enable: true
   path:
   vmid: 2899700
-  title: '追番列表'
-  quote: '生命不息，追番不止！'
+  title: "追番列表"
+  quote: "生命不息，追番不止！"
   show: 1
   loading:
   metaColor:
@@ -209,8 +209,8 @@ cinema: # 追剧设置
   enable: true
   path:
   vmid: 2899700
-  title: '放映厅列表'
-  quote: '生命不息，追剧不止！'
+  title: "放映厅列表"
+  quote: "生命不息，追剧不止！"
   show: 1
   loading:
   metaColor:
